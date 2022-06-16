@@ -8,6 +8,8 @@ class Room : Entity
 public:
 	Room();
 	~Room();
+
+	void Look() const;
 };
 
 #endif // _ROOM_INCLUDE
