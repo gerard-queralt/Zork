@@ -5,10 +5,15 @@
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
 
+using namespace std;
+
 class GameLoader
 {
 public:
-	static std::vector<Entity*> LoadEntities(Player** player);
+	static vector<Entity*> LoadEntities(Player** player);
+
+private:
+	static vector<Room*> LoadRooms();
 };
 
 #endif // _GAMELOADER_INCLUDE
