@@ -1,7 +1,16 @@
 #include "World.h"
+#include <iostream>
 
-void World::Init()
+World::World()
 {
+}
+
+World::~World()
+{
+	for (Entity* entity : entities) {
+		delete entity;
+	}
+	entities.clear();
 }
 
 void World::Update()

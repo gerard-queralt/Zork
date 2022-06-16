@@ -8,7 +8,8 @@ using namespace std;
 class World
 {
 public:
-	void Init();
+	World();
+	~World();
 	void Update();
 private:
 	vector<Entity*> entities;

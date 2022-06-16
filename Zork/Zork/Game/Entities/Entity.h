@@ -12,6 +12,8 @@ public:
 		NUM_TYPES
 	};
 
+	Entity();
+	~Entity();
 	virtual void Update();
 
 private:
