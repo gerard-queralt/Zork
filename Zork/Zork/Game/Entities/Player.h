@@ -5,7 +5,7 @@
 
 class Player : public Entity
 {
-	Player();
+	Player(const string& name, const string& description);
 	~Player();
 };
 

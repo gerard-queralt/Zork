@@ -1,7 +1,8 @@
 #include "Room.h"
 
-Room::Room()
+Room::Room(const string& name, const string& description) : Entity(name, description)
 {
+	type = ROOM;
 }
 
 Room::~Room()

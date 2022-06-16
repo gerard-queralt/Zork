@@ -6,7 +6,7 @@
 class Room : Entity
 {
 public:
-	Room();
+	Room(const string& name, const string& description);
 	~Room();
 
 	void Look() const;

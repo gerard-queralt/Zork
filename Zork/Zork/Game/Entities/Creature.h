@@ -7,7 +7,7 @@
 class Creature : Entity
 {
 public:
-	Creature();
+	Creature(const string& name, const string& description);
 	~Creature();
 
 private:
