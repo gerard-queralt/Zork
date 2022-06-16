@@ -1,8 +1,11 @@
 #include "World.h"
 #include <iostream>
 
+#include "GameLoader.h"
+
 World::World()
 {
+	entities = GameLoader::LoadEntities();
 }
 
 World::~World()
