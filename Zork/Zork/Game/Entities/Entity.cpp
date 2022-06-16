@@ -1,8 +1,11 @@
 #include <iostream>
 #include "Entity.h"
 
-Entity::Entity()
+Entity::Entity(const string& name, const string& description)
 {
+	this->name = name;
+	this->description = description;
+	this->type = ENTITY;
 }
 
 Entity::~Entity()

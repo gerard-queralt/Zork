@@ -9,10 +9,11 @@ class Entity
 {
 public:
 	enum EntityType {
+		ENTITY = 0,
 		NUM_TYPES
 	};
 
-	Entity();
+	Entity(const string &name, const string &description);
 	~Entity();
 	virtual void Update();
 
@@ -21,6 +22,7 @@ public:
 protected:
 	string name;
 	string description;
+	EntityType type;
 	list<Entity*> contains;
 };
 
