@@ -7,7 +7,7 @@ std::vector<Entity*> GameLoader::LoadEntities(Player** player)
 
     Room* start = new Room("West of House", "This is an open field west of a white house, with a boarded front door.");
 
-    *player = new Player("Hero", "That's you!", NULL);
+    *player = new Player("Hero", "That's you!");
     (*player)->Enter(start);
 
     entities.push_back(start);

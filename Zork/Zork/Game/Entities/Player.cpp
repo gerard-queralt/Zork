@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player(const string& name, const string& description, Room* location = NULL) : Creature(name, description, location)
+Player::Player(const string& name, const string& description) : Creature(name, description, NULL)
 {
 	type = PLAYER;
 }
