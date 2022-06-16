@@ -2,7 +2,7 @@
 #define _GAMELOADER_INCLUDE
 
 #include <vector>
-#include "Game/Entities/Entity.h"
+#include "Entities/Entity.h"
 
 class GameLoader
 {
