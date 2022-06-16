@@ -139,17 +139,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Creature.cpp" />
+    <ClCompile Include="Game\Entities\Creature.cpp" />
     <ClCompile Include="Game\Entities\Entity.cpp" />
+    <ClCompile Include="Game\Entities\Player.cpp" />
+    <ClCompile Include="Game\Entities\Room.cpp" />
+    <ClCompile Include="Game\GameLoader.cpp" />
     <ClCompile Include="Game\World.cpp" />
-    <ClCompile Include="Room.cpp" />
     <ClCompile Include="Zork.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Creature.h" />
+    <ClInclude Include="Game\Entities\Creature.h" />
     <ClInclude Include="Game\Entities\Entity.h" />
+    <ClInclude Include="Game\Entities\Player.h" />
+    <ClInclude Include="Game\Entities\Room.h" />
+    <ClInclude Include="Game\GameLoader.h" />
     <ClInclude Include="Game\World.h" />
-    <ClInclude Include="Room.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

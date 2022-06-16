@@ -3,11 +3,12 @@
 
 #include <vector>
 #include "Entities/Entity.h"
+#include "Entities/Player.h"
 
 class GameLoader
 {
 public:
-	static std::vector<Entity*> LoadEntities();
+	static std::vector<Entity*> LoadEntities(Player** player);
 };
 
 #endif // _GAMELOADER_INCLUDE
