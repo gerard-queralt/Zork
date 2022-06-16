@@ -1,11 +1,11 @@
 #ifndef _PLAYER_INCLUDE
 #define _PLAYER_INCLUDE
 
-#include "Entity.h"
+#include "Creature.h"
 
-class Player : public Entity
+class Player : public Creature
 {
-	Player(const string& name, const string& description);
+	Player(const string& name, const string& description, Room* location);
 	~Player();
 };
 
