@@ -3,7 +3,7 @@
 
 #include "Entity.h"
 
-class Room : Entity
+class Room : public Entity
 {
 public:
 	Room(const string& name, const string& description);

@@ -4,7 +4,7 @@
 #include "Entity.h"
 #include "Room.h"
 
-class Creature : Entity
+class Creature : public Entity
 {
 public:
 	Creature(const string& name, const string& description, Room* location);
