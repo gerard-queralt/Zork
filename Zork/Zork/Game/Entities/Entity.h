@@ -16,7 +16,7 @@ public:
 	~Entity();
 	virtual void Update();
 
-private:
+protected:
 	string name;
 	string description;
 	list<Entity*> contains;

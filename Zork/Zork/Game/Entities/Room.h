@@ -1,7 +1,9 @@
 #ifndef _ROOM_INCLUDE
 #define _ROOM_INCLUDE
 
-class Room
+#include "Entity.h"
+
+class Room : Entity
 {
 public:
 	Room();
