@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "Entities/Entity.h"
+#include "Entities/Player.h"
 using namespace std;
 
 class World
@@ -12,6 +13,7 @@ public:
 	~World();
 	void Update();
 private:
+	Player* player;
 	vector<Entity*> entities;
 };
 
