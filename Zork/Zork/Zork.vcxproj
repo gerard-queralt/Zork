@@ -139,7 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Entities\Entity.cpp" />
+    <ClCompile Include="Game\World.cpp" />
     <ClCompile Include="Zork.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\Entities\Entity.h" />
+    <ClInclude Include="Game\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
