@@ -10,7 +10,9 @@ public:
 	Creature(const string& name, const string& description, Room* location);
 	~Creature();
 
-private:
+	virtual void Enter(Room* room);
+
+protected:
 	Room* location;
 };
 

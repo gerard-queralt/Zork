@@ -9,3 +9,8 @@ Creature::Creature(const string& name, const string& description, Room* location
 Creature::~Creature()
 {
 }
+
+void Creature::Enter(Room* room)
+{
+	location = room;
+}
