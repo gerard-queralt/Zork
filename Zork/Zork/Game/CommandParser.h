@@ -9,12 +9,15 @@ using namespace std;
 class CommandParser
 {
 public:
-	static Command* ParseCommand(const string& args);
+	CommandParser(const vector<Entity*>& worldEntities);
+	~CommandParser();
+	Command* ParseCommand(const string& args);
 
 private:
-	static vector<string> SplitString(const string& text);
+	vector<string> SplitString(const string& text);
 
 	static map<string, Direction> directionShorthands;
+	vector<Entity*> entities;
 };
 
 #endif // _COMMANDPARSER_INCLUDE

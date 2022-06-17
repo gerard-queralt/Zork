@@ -4,6 +4,7 @@
 #include <vector>
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
+#include "CommandParser.h"
 using namespace std;
 
 class World
@@ -15,6 +16,8 @@ public:
 private:
 	Player* player;
 	vector<Entity*> entities;
+
+	CommandParser* parser;
 };
 
 #endif // _WORLD_INCLUDE
