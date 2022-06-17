@@ -141,8 +141,10 @@
   <ItemGroup>
     <ClCompile Include="Game\Entities\Creature.cpp" />
     <ClCompile Include="Game\Entities\Entity.cpp" />
+    <ClCompile Include="Game\Entities\Item.cpp" />
     <ClCompile Include="Game\Entities\Player.cpp" />
     <ClCompile Include="Game\Entities\Room.cpp" />
+    <ClCompile Include="Game\EntityFinder.cpp" />
     <ClCompile Include="Game\GameLoader.cpp" />
     <ClCompile Include="Game\World.cpp" />
     <ClCompile Include="Zork.cpp" />
@@ -150,8 +152,10 @@
   <ItemGroup>
     <ClInclude Include="Game\Entities\Creature.h" />
     <ClInclude Include="Game\Entities\Entity.h" />
+    <ClInclude Include="Game\Entities\Item.h" />
     <ClInclude Include="Game\Entities\Player.h" />
     <ClInclude Include="Game\Entities\Room.h" />
+    <ClInclude Include="Game\EntityFinder.h" />
     <ClInclude Include="Game\GameLoader.h" />
     <ClInclude Include="Game\World.h" />
   </ItemGroup>
