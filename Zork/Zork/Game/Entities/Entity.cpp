@@ -20,3 +20,13 @@ void Entity::Look() const
 {
 	std::cout << description << endl;
 }
+
+string Entity::getName()
+{
+	return name;
+}
+
+Entity::EntityType Entity::getType()
+{
+	return type;
+}

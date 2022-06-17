@@ -23,6 +23,9 @@ public:
 
 	virtual void Look() const;
 
+	string getName();
+	EntityType getType();
+
 protected:
 	string name;
 	string description;
