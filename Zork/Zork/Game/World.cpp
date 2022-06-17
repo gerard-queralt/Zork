@@ -2,6 +2,8 @@
 #include <iostream>
 
 #include "GameLoader.h"
+#include "CommandParser.h"
+#include "Models/Command.h"
 
 World::World()
 {
@@ -22,5 +24,9 @@ void World::Update(const string& args)
 {
 	for (Entity* entity : entities) {
 		entity->Update();
+	}
+	Command* command = CommandParser::ParseCommand(args);
+	if (command != NULL) {
+		command->Do(player);
 	}
 }

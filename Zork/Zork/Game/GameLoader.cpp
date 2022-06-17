@@ -60,7 +60,7 @@ vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& existingEntities)
     Entity* westHouse = EntityFinder::FindEntityByName("West of House", existingEntities);
     Entity* livingRoom = EntityFinder::FindEntityByName("Living Room", existingEntities);
     if (westHouse->getType() == ROOM && livingRoom->getType() == ROOM) {
-        Exit* westToLiving = new Exit("House door", "The door to the house seems open", WEST, (Room*)westHouse, (Room*)livingRoom);
+        Exit* westToLiving = new Exit("House door", "The door to the house seems open", EAST, (Room*)westHouse, (Room*)livingRoom);
         westHouse->AddEntity(westToLiving);
         livingRoom->AddEntity(westToLiving->Reverse());
         exits.push_back(westToLiving);

@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Game\CommandParser.cpp" />
     <ClCompile Include="Game\Entities\Creature.cpp" />
     <ClCompile Include="Game\Entities\Entity.cpp" />
     <ClCompile Include="Game\Entities\Exit.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Zork.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Game\CommandParser.h" />
     <ClInclude Include="Game\Entities\Creature.h" />
     <ClInclude Include="Game\Entities\Entity.h" />
     <ClInclude Include="Game\Entities\Exit.h" />
