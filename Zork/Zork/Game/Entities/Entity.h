@@ -11,6 +11,7 @@ public:
 	enum EntityType {
 		ENTITY = 0,
 		ROOM,
+		ITEM,
 		CREATURE,
 		PLAYER,
 		NUM_TYPES
