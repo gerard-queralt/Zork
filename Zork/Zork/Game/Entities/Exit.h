@@ -18,9 +18,10 @@ public:
 	Exit(const string& name, const string& description, Direction direction, Room* from, Room* to);
 	~Exit();
 
-	Exit Reverse();
-
 private:
+	Exit* Reverse();
+	void AddSelfToRooms();
+
 	Direction direction;
 	Room* from;
 	Room* to;

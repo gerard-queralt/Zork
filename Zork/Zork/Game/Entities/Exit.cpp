@@ -12,9 +12,15 @@ Exit::~Exit()
 {
 }
 
-Exit Exit::Reverse()
+Exit* Exit::Reverse()
 {
 	//If direction is even, add 1 to get reverse. If it's odd, substract 1
 	Direction reverseDirection = static_cast<Direction>(direction + 1 * pow(-1, direction % 2));
-	return Exit(name, description, reverseDirection, to, from);
+	return new Exit(name, description, reverseDirection, to, from);
+}
+
+void Exit::AddSelfToRooms()
+{
+	from->AddEntity(this);
+	to->AddEntity(this->Reverse());
 }
