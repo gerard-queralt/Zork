@@ -2,6 +2,7 @@
 #define _EXIT_INCLUDE
 
 #include <map>
+#include <list>
 #include "Entity.h"
 #include "Room.h"
 
@@ -16,12 +17,17 @@ public:
 	Direction getDirection();
 	Room* getRoomFrom(Room* from);
 	Exit* Reverse();
+	void LockWith(const string& keyName);
+	bool Unlock(const list<Entity*>& inventory);
+	bool isLocked();
 
 private:
 	static map<Direction, string> directionName;
 	Direction direction;
 	Room* from;
 	Room* to;
+	bool locked;
+	string keyName;
 };
 
 #endif // _EXIT_INCLUDE

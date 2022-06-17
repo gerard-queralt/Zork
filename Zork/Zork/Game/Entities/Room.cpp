@@ -20,12 +20,23 @@ void Room::Look() const
 	}
 }
 
-Room* Room::getRoomInDirection(Direction direction)
+Room* Room::AccessRoomInDirection(Direction direction, const list<Entity*>& playerInventory)
 {
 	for (Entity* entity : contains) {
 		if (entity->getType() == EXIT && ((Exit*)entity)->getDirection() == direction) {
-			return ((Exit*)entity)->getRoomFrom(this);
+			bool unlocked = !((Exit*)entity)->isLocked();
+			bool unlockable = !unlocked && ((Exit*)entity)->Unlock(playerInventory);
+			if (unlocked || unlockable) {
+				return ((Exit*)entity)->getRoomFrom(this);
+			}
+			else {
+				cout << "It's locked." << endl;
+				return NULL;
+			}
 		}
 	}
+
+	cout << "You can't go in that direction." << endl;
 	return NULL;
 }
+

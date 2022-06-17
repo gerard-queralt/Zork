@@ -19,11 +19,8 @@ void Player::Enter(Room* room)
 
 void Player::Move(Direction direction)
 {
-	Room* nextRoom = location->getRoomInDirection(direction);
+	Room* nextRoom = location->AccessRoomInDirection(direction, contains);
 	if (nextRoom != NULL) {
 		Enter(nextRoom);
-	}
-	else {
-		cout << "You can't go in that direction." << endl;
 	}
 }
