@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include <iostream>
+
 Player::Player(const string& name, const string& description) : Creature(name, description, NULL)
 {
 	type = PLAYER;
@@ -20,5 +22,8 @@ void Player::Move(Direction direction)
 	Room* nextRoom = location->getRoomInDirection(direction);
 	if (nextRoom != NULL) {
 		Enter(nextRoom);
+	}
+	else {
+		cout << "You can't go in that direction." << endl;
 	}
 }

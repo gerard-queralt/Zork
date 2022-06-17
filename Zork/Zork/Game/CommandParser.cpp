@@ -1,5 +1,6 @@
 #include "CommandParser.h"
 
+#include <iostream>
 #include "Models/MoveCommand.h"
 
 map<string, Direction> CommandParser::directionShorthands = {
@@ -17,18 +18,23 @@ Command* CommandParser::ParseCommand(const string& args)
 {
 	vector<string> split = SplitString(args);
 
-	//check if move command
-	if (directionShorthands.find(split[0]) != directionShorthands.end()) {
-		Direction direction = directionShorthands[split[0]];
-		return new MoveCommand(direction);
-	}
-	else if (split[0] == "move" || split[0] == "go") {
-		if (directionShorthands.find(split[1]) != directionShorthands.end()) {
-			Direction direction = directionShorthands[split[1]];
+	if (!split.empty()) {
+		//check if move command
+		if (split.size() == 1 && directionShorthands.find(split[0]) != directionShorthands.end()) {
+			Direction direction = directionShorthands[split[0]];
 			return new MoveCommand(direction);
+		}
+		else if (split[0] == "move" || split[0] == "go") {
+			if (split.size() == 2 && directionShorthands.find(split[1]) != directionShorthands.end()) {
+				Direction direction = directionShorthands[split[1]];
+				return new MoveCommand(direction);
+			}
+			cout << "That's not a valid direction." << endl;
+			return NULL;
 		}
 	}
 
+	cout << "Sorry, I didn't understand that." << endl;
 	return NULL;
 }
 
