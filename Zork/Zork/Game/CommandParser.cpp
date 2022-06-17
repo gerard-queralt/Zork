@@ -49,7 +49,9 @@ Command* CommandParser::ParseCommand(const string& args)
 
 		//check if get command
 		if (split.size() == 2 && (split[0] == "get" || split[0] == "take")) {
-			Entity* eTarget = EntityFinder::FindEntityByName(split[1], worldEntities);
+			string targetName = split[1];
+			targetName[0] = toupper(targetName[0]); //allow name in lowercase
+			Entity* eTarget = EntityFinder::FindEntityByName(targetName, worldEntities);
 			if (eTarget != NULL && eTarget->getType() == ITEM) {
 				Item* target = (Item*)eTarget;
 				return new GetCommand(target);
