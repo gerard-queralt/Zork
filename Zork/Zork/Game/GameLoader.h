@@ -4,6 +4,7 @@
 #include <vector>
 #include "Entities/Entity.h"
 #include "Entities/Player.h"
+#include "Entities/Item.h"
 
 using namespace std;
 
@@ -18,7 +19,8 @@ public:
 	static LoadedResult LoadEntities();
 
 private:
-	static vector<Room*> LoadRooms();
+	static vector<Room*> LoadRooms(const vector<Item*>& items);
+	static vector<Item*> LoadItems();
 };
 
 #endif // _GAMELOADER_INCLUDE

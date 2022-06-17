@@ -5,7 +5,8 @@ GameLoader::LoadedResult GameLoader::LoadEntities()
 {
     vector<Entity*> entities;
 
-    vector<Room*> rooms = LoadRooms();
+    vector<Item*> items = LoadItems();
+    vector<Room*> rooms = LoadRooms(items);
 
     Player* player = new Player("Hero", "That's you!");
     player->Enter(rooms[0]);
@@ -20,7 +21,18 @@ GameLoader::LoadedResult GameLoader::LoadEntities()
     return result;
 }
 
-vector<Room*> GameLoader::LoadRooms()
+vector<Item*> GameLoader::LoadItems()
+{
+    vector<Item*> items;
+
+    Item* mailbox = new Item("Mailbox", "a small mailbox");
+
+    items.push_back(mailbox);
+
+    return items;
+}
+
+vector<Room*> GameLoader::LoadRooms(const vector<Item*>& items)
 {
     vector<Room*> rooms;
 
