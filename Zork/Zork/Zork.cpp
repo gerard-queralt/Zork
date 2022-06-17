@@ -12,7 +12,7 @@ int main()
     while (true) {
         cout << "> ";
         getline(cin, args);
-        world.Update();
+        world.Update(args);
     }
 
     return 0;

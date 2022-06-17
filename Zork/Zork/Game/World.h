@@ -11,7 +11,7 @@ class World
 public:
 	World();
 	~World();
-	void Update();
+	void Update(const string& args);
 private:
 	Player* player;
 	vector<Entity*> entities;

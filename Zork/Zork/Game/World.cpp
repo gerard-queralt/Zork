@@ -18,7 +18,7 @@ World::~World()
 	entities.clear();
 }
 
-void World::Update()
+void World::Update(const string& args)
 {
 	for (Entity* entity : entities) {
 		entity->Update();
