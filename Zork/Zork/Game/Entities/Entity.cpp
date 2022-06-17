@@ -33,5 +33,7 @@ Entity::EntityType Entity::getType()
 
 void Entity::AddEntity(Entity* entity)
 {
-	contains.push_back(entity);
+	if (entity != NULL) {
+		contains.push_back(entity);
+	}
 }
