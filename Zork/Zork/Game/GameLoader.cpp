@@ -1,4 +1,5 @@
 #include "GameLoader.h"
+#include "EntityFinder.h"
 #include "Entities/Room.h"
 
 GameLoader::LoadedResult GameLoader::LoadEntities()
@@ -6,12 +7,14 @@ GameLoader::LoadedResult GameLoader::LoadEntities()
     vector<Entity*> entities;
 
     vector<Item*> items = LoadItems();
-    vector<Room*> rooms = LoadRooms(items);
+    entities.insert(entities.end(), items.begin(), items.end());
+
+    vector<Room*> rooms = LoadRooms(entities);
+    entities.insert(entities.end(), rooms.begin(), rooms.end());
 
     Player* player = new Player("Hero", "That's you!");
     player->Enter(rooms[0]);
 
-    entities.insert(entities.end(), rooms.begin(), rooms.end());
     entities.push_back(player);
 
     LoadedResult result;
@@ -32,7 +35,7 @@ vector<Item*> GameLoader::LoadItems()
     return items;
 }
 
-vector<Room*> GameLoader::LoadRooms(const vector<Item*>& items)
+vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& existingEntities)
 {
     vector<Room*> rooms;
 

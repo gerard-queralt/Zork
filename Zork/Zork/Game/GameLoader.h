@@ -19,7 +19,7 @@ public:
 	static LoadedResult LoadEntities();
 
 private:
-	static vector<Room*> LoadRooms(const vector<Item*>& items);
+	static vector<Room*> LoadRooms(const vector<Entity*>& existingEntities);
 	static vector<Item*> LoadItems();
 };
 
