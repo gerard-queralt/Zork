@@ -5,6 +5,7 @@
 
 class Item : public Entity
 {
+public:
 	Item(const string& name, const string& description);
 	~Item();
 };
