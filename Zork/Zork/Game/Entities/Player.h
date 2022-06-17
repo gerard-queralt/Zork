@@ -10,6 +10,8 @@ public:
 	~Player();
 
 	void Enter(Room* room);
+
+	void Move(Direction direction);
 };
 
 #endif // _PLAYER_INCLUDE

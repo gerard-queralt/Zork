@@ -14,3 +14,11 @@ void Player::Enter(Room* room)
 	Creature::Enter(room);
 	location->Look();
 }
+
+void Player::Move(Direction direction)
+{
+	Room* nextRoom = location->getRoomInDirection(direction);
+	if (nextRoom != NULL) {
+		Enter(nextRoom);
+	}
+}
