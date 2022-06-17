@@ -2,6 +2,7 @@
 #define _ROOM_INCLUDE
 
 #include "Entity.h"
+#include "../Enumerations.h"
 
 class Room : public Entity
 {
@@ -10,6 +11,8 @@ public:
 	~Room();
 
 	void Look() const;
+
+	Room* GetRoomInDirection(Direction direction);
 };
 
 #endif // _ROOM_INCLUDE

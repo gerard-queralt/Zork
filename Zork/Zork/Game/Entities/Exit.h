@@ -5,14 +5,6 @@
 #include "Entity.h"
 #include "Room.h"
 
-enum Direction {
-	NORTH = 0,
-	SOUTH,
-	EAST,
-	WEST,
-	NUM_DIRECTIONS
-};
-
 class Exit : public Entity
 {
 public:

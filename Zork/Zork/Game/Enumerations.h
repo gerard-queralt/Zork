@@ -1,0 +1,22 @@
+#ifndef _ENUMERATIONS_INCLUDE
+#define _ENUMERATIONS_INCLUDE
+
+enum EntityType {
+	ENTITY = 0,
+	ROOM,
+	EXIT,
+	ITEM,
+	CREATURE,
+	PLAYER,
+	NUM_TYPES
+};
+
+enum Direction {
+	NORTH = 0,
+	SOUTH,
+	EAST,
+	WEST,
+	NUM_DIRECTIONS
+};
+
+#endif // _ENUMERATIONS_INCLUDE

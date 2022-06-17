@@ -3,17 +3,8 @@
 
 #include <string>
 #include <list>
+#include "../Enumerations.h"
 using namespace std;
-
-enum EntityType {
-	ENTITY = 0,
-	ROOM,
-	EXIT,
-	ITEM,
-	CREATURE,
-	PLAYER,
-	NUM_TYPES
-};
 
 class Entity
 {

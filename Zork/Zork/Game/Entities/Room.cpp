@@ -18,3 +18,8 @@ void Room::Look() const
 		entity->Look();
 	}
 }
+
+Room* Room::GetRoomInDirection(Direction direction)
+{
+	return nullptr;
+}
