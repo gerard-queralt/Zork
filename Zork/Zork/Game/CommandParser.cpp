@@ -2,6 +2,9 @@
 
 #include <iostream>
 #include "Models/MoveCommand.h"
+#include "Models/GetCommand.h"
+#include "EntityFinder.h"
+#include "Entities/Item.h"
 
 map<string, Direction> CommandParser::directionShorthands = {
 	{"north", NORTH},
@@ -16,7 +19,7 @@ map<string, Direction> CommandParser::directionShorthands = {
 
 CommandParser::CommandParser(const vector<Entity*>& worldEntities)
 {
-	this->entities = worldEntities;
+	this->worldEntities = worldEntities;
 }
 
 CommandParser::~CommandParser()
@@ -46,7 +49,14 @@ Command* CommandParser::ParseCommand(const string& args)
 
 		//check if get command
 		if (split.size() == 2 && (split[0] == "get" || split[0] == "take")) {
-			//WIP
+			Entity* eTarget = EntityFinder::FindEntityByName(split[1], worldEntities);
+			if (eTarget != NULL && eTarget->getType() == ITEM) {
+				Item* target = (Item*)eTarget;
+				return new GetCommand(target);
+			}
+			cout << "That's not an item in this room." << endl;
+			return NULL;
+			
 		}
 	}
 

@@ -17,7 +17,7 @@ private:
 	vector<string> SplitString(const string& text);
 
 	static map<string, Direction> directionShorthands;
-	vector<Entity*> entities;
+	vector<Entity*> worldEntities;
 };
 
 #endif // _COMMANDPARSER_INCLUDE
