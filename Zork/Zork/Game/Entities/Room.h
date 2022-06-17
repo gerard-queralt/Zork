@@ -12,7 +12,7 @@ public:
 
 	void Look() const;
 
-	Room* GetRoomInDirection(Direction direction);
+	Room* getRoomInDirection(Direction direction);
 };
 
 #endif // _ROOM_INCLUDE

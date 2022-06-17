@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Room.h"
+#include "Exit.h"
 
 Room::Room(const string& name, const string& description) : Entity(name, description)
 {
@@ -19,7 +20,12 @@ void Room::Look() const
 	}
 }
 
-Room* Room::GetRoomInDirection(Direction direction)
+Room* Room::getRoomInDirection(Direction direction)
 {
-	return nullptr;
+	for (Entity* entity : contains) {
+		if (entity->getType() == EXIT && ((Exit*)entity)->getDirection() == direction) {
+			return ((Exit*)entity)->getRoomFrom(this);
+		}
+	}
+	return NULL;
 }
