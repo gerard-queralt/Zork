@@ -18,7 +18,6 @@ public:
 	string getName();
 	EntityType getType();
 	void AddEntity(Entity* entity);
-	bool Contains(const string& entityName);
 
 protected:
 	string name;

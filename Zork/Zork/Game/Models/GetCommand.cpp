@@ -12,7 +12,7 @@ GetCommand::~GetCommand()
 
 void GetCommand::Do(Player* player)
 {
-	if (player->getLocation()->Contains(target->getName())) {
+	if (player->getLocation()->EntityInRoom(target->getName())) {
 		player->AddEntity(target);
 		cout << "Taken." << endl;
 	}

@@ -14,6 +14,7 @@ public:
 
 	void Look() const;
 
+	bool EntityInRoom(const string& entityName);
 	Room* AccessRoomInDirection(Direction direction, const list<Entity*>& playerInventory);
 };
 
