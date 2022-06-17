@@ -1,6 +1,7 @@
 #ifndef _EXIT_INCLUDE
 #define _EXIT_INCLUDE
 
+#include <map>
 #include "Entity.h"
 #include "Room.h"
 
@@ -18,10 +19,13 @@ public:
 	Exit(const string& name, const string& description, Direction direction, Room* from, Room* to);
 	~Exit();
 
+	void Look() const;
+
 private:
 	Exit* Reverse();
 	void AddSelfToRooms();
 
+	static map<Direction, string> directionName;
 	Direction direction;
 	Room* from;
 	Room* to;

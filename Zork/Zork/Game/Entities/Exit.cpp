@@ -1,4 +1,12 @@
+#include <iostream>
 #include "Exit.h"
+
+map<Direction, string> Exit::directionName = {
+	{NORTH, "north"},
+	{SOUTH, "south"},
+	{EAST, "east"},
+	{WEST, "west"}
+};
 
 Exit::Exit(const string& name, const string& description, Direction direction, Room* from, Room* to) : Entity(name, description)
 {
@@ -10,6 +18,12 @@ Exit::Exit(const string& name, const string& description, Direction direction, R
 
 Exit::~Exit()
 {
+}
+
+void Exit::Look() const
+{
+	cout << "You see the " << to->getName() << " to the " << directionName[direction] << ". ";
+	Entity::Look();
 }
 
 Exit* Exit::Reverse()
