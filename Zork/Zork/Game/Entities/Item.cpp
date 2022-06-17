@@ -1,10 +1,16 @@
 #include "Item.h"
 
-Item::Item(const string& name, const string& description) : Entity(name, description)
+Item::Item(const string& name, const string& description, bool canBePicked) : Entity(name, description)
 {
-	type = ITEM;
+	this->type = ITEM;
+	this->canBePicked = canBePicked;
 }
 
 Item::~Item()
 {
+}
+
+bool Item::CanBePicked()
+{
+	return canBePicked;
 }

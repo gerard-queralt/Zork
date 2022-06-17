@@ -30,7 +30,7 @@ vector<Item*> GameLoader::LoadItems()
 {
     vector<Item*> items;
 
-    Item* mailbox = new Item("Mailbox", "a small mailbox");
+    Item* mailbox = new Item("Mailbox", "a small mailbox", false);
 
     items.push_back(mailbox);
 
