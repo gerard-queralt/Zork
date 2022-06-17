@@ -10,7 +10,12 @@ using namespace std;
 class GameLoader
 {
 public:
-	static vector<Entity*> LoadEntities(Player** player);
+	struct LoadedResult {
+		Player* player;
+		vector<Entity*> entities;
+	};
+
+	static LoadedResult LoadEntities();
 
 private:
 	static vector<Room*> LoadRooms();

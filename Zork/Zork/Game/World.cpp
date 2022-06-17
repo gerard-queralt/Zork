@@ -5,7 +5,9 @@
 
 World::World()
 {
-	entities = GameLoader::LoadEntities(&player);
+	GameLoader::LoadedResult loadData = GameLoader::LoadEntities();
+	entities = loadData.entities;
+	player = loadData.player;
 }
 
 World::~World()
