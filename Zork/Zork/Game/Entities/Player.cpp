@@ -24,3 +24,19 @@ void Player::Move(Direction direction)
 		Enter(nextRoom);
 	}
 }
+
+void Player::Get(Item* item)
+{
+	if (location->EntityInRoom(item->getName())) {
+		if (item->CanBePicked()) {
+			this->AddEntity(item);
+			cout << "Taken." << endl;
+		}
+		else {
+			cout << "That can't be picked up." << endl;
+		}
+	}
+	else {
+		cout << "That's not an item in this room." << endl;
+	}
+}

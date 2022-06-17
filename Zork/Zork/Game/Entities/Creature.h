@@ -11,7 +11,6 @@ public:
 	~Creature();
 
 	virtual void Enter(Room* room);
-	Room* getLocation();
 
 protected:
 	Room* location;

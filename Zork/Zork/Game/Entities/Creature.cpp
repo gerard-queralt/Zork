@@ -14,8 +14,3 @@ void Creature::Enter(Room* room)
 {
 	location = room;
 }
-
-Room* Creature::getLocation()
-{
-	return location;
-}
