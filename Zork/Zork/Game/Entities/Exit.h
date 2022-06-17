@@ -13,6 +13,8 @@ public:
 
 	void Look() const;
 
+	Direction getDirection();
+	Room* getRoomFrom(Room* from);
 	Exit* Reverse();
 
 private:

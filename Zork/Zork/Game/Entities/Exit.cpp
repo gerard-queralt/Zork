@@ -26,6 +26,22 @@ void Exit::Look() const
 	Entity::Look();
 }
 
+Direction Exit::getDirection()
+{
+	return direction;
+}
+
+Room* Exit::getRoomFrom(Room* from)
+{
+	if (from->getName() == this->from->getName()) {
+		return this->to;
+	}
+	if (from->getName() == this->to->getName()) {
+		return this->from;
+	}
+	return NULL;
+}
+
 Exit* Exit::Reverse()
 {
 	//If direction is even, add 1 to get reverse. If it's odd, substract 1
