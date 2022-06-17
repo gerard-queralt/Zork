@@ -14,6 +14,8 @@ Exit::Exit(const string& name, const string& description, Direction direction, R
 	this->from = from;
 	this->to = to;
 	this->type = EXIT;
+
+	AddSelfToRooms();
 }
 
 Exit::~Exit()
