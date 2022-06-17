@@ -28,5 +28,6 @@ void World::Update(const string& args)
 	Command* command = CommandParser::ParseCommand(args);
 	if (command != NULL) {
 		command->Do(player);
+		delete command;
 	}
 }
