@@ -1,6 +1,5 @@
 #include "GameLoader.h"
 #include "EntityFinder.h"
-#include "Entities/Room.h"
 
 GameLoader::LoadedResult GameLoader::LoadEntities()
 {
@@ -11,6 +10,9 @@ GameLoader::LoadedResult GameLoader::LoadEntities()
 
     vector<Room*> rooms = LoadRooms(entities);
     entities.insert(entities.end(), rooms.begin(), rooms.end());
+
+    vector<Exit*> exits = LoadExits(entities);
+    entities.insert(entities.end(), exits.begin(), exits.end());
 
     Player* player = new Player("Hero", "That's you!");
     player->Enter(rooms[0]);
@@ -49,4 +51,18 @@ vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& existingEntities)
     rooms.push_back(livingRoom);
 
     return rooms;
+}
+
+vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& existingEntities)
+{
+    vector<Exit*> exits;
+
+    Entity* westHouse = EntityFinder::FindEntityByName("West of House", existingEntities);
+    Entity* livingRoom = EntityFinder::FindEntityByName("Living Room", existingEntities);
+    if (westHouse->getType() == ROOM && livingRoom->getType() == ROOM) {
+        Exit* westToLiving = new Exit("House door", "The door to the house seems open", WEST, (Room*)westHouse, (Room*)livingRoom);
+        exits.push_back(westToLiving);
+    }
+
+    return exits;
 }
