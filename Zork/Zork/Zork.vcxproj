@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="Game\Entities\Creature.cpp" />
     <ClCompile Include="Game\Entities\Entity.cpp" />
+    <ClCompile Include="Game\Entities\Exit.cpp" />
     <ClCompile Include="Game\Entities\Item.cpp" />
     <ClCompile Include="Game\Entities\Player.cpp" />
     <ClCompile Include="Game\Entities\Room.cpp" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="Game\Entities\Creature.h" />
     <ClInclude Include="Game\Entities\Entity.h" />
+    <ClInclude Include="Game\Entities\Exit.h" />
     <ClInclude Include="Game\Entities\Item.h" />
     <ClInclude Include="Game\Entities\Player.h" />
     <ClInclude Include="Game\Entities\Room.h" />

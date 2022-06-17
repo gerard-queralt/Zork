@@ -11,7 +11,7 @@ class EntityFinder
 {
 public:
 	static Entity* FindEntityByName(const string& name, const vector<Entity*>& entities);
-	static vector<Entity*> FindEntitiesByType(Entity::EntityType type, const vector<Entity*>& entities);
+	static vector<Entity*> FindEntitiesByType(EntityType type, const vector<Entity*>& entities);
 };
 
 #endif // _ENTITYFINDER_INCLUDE

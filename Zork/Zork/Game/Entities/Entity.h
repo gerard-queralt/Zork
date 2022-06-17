@@ -5,19 +5,19 @@
 #include <list>
 using namespace std;
 
+enum EntityType {
+	ENTITY = 0,
+	ROOM,
+	EXIT,
+	ITEM,
+	CREATURE,
+	PLAYER,
+	NUM_TYPES
+};
+
 class Entity
 {
 public:
-	enum EntityType {
-		ENTITY = 0,
-		ROOM,
-		EXIT,
-		ITEM,
-		CREATURE,
-		PLAYER,
-		NUM_TYPES
-	};
-
 	Entity(const string &name, const string &description);
 	~Entity();
 	virtual void Update();

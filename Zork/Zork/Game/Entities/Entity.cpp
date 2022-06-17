@@ -26,7 +26,7 @@ string Entity::getName()
 	return name;
 }
 
-Entity::EntityType Entity::getType()
+EntityType Entity::getType()
 {
 	return type;
 }

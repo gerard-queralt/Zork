@@ -10,7 +10,7 @@ Entity* EntityFinder::FindEntityByName(const string& name, const vector<Entity*>
     return NULL;
 }
 
-vector<Entity*> EntityFinder::FindEntitiesByType(Entity::EntityType type, const vector<Entity*>& entities)
+vector<Entity*> EntityFinder::FindEntitiesByType(EntityType type, const vector<Entity*>& entities)
 {
     vector<Entity*> entitiesOfType;
 
