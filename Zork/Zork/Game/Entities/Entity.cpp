@@ -37,3 +37,13 @@ void Entity::AddEntity(Entity* entity)
 		contains.push_back(entity);
 	}
 }
+
+bool Entity::Contains(const string& entityName)
+{
+	for (Entity* entity : contains) {
+		if (entity->getName() == entityName) {
+			return true;
+		}
+	}
+	return false;
+}

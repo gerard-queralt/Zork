@@ -12,6 +12,11 @@ GetCommand::~GetCommand()
 
 void GetCommand::Do(Player* player)
 {
-	player->AddEntity(target);
-	cout << "Taken." << endl;
+	if (player->getLocation()->Contains(target->getName())) {
+		player->AddEntity(target);
+		cout << "Taken." << endl;
+	}
+	else {
+		cout << "That's not an item in this room." << endl;
+	}
 }
