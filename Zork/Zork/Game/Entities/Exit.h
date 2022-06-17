@@ -21,10 +21,9 @@ public:
 
 	void Look() const;
 
-private:
 	Exit* Reverse();
-	void AddSelfToRooms();
 
+private:
 	static map<Direction, string> directionName;
 	Direction direction;
 	Room* from;
