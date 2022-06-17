@@ -39,11 +39,14 @@ vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& existingEntities)
 {
     vector<Room*> rooms;
 
-    Room* start = new Room("West of House", "This is an open field west of a white house, with a boarded front door.");
+    Room* westHouse = new Room("West of House", "This is an open field west of a white house, with a boarded front door.");
     Entity* mailbox = EntityFinder::FindEntityByName("Mailbox", existingEntities);
-    start->AddEntity(mailbox);
+    westHouse->AddEntity(mailbox);
 
-    rooms.push_back(start);
+    Room* livingRoom = new Room("Living Room", "You are in the living room.");
+
+    rooms.push_back(westHouse);
+    rooms.push_back(livingRoom);
 
     return rooms;
 }
