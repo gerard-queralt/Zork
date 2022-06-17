@@ -25,6 +25,7 @@ public:
 
 	string getName();
 	EntityType getType();
+	void AddEntity(Entity* entity);
 
 protected:
 	string name;

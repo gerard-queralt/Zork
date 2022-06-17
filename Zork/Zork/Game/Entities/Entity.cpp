@@ -30,3 +30,8 @@ Entity::EntityType Entity::getType()
 {
 	return type;
 }
+
+void Entity::AddEntity(Entity* entity)
+{
+	contains.push_back(entity);
+}
