@@ -16,6 +16,9 @@ void Room::Look() const
 	std::cout << name << endl;
 	Entity::Look();
 	for (Entity* entity : contains) {
+		if (entity->getType() != EXIT) {
+			cout << "You see ";
+		}
 		entity->Look();
 	}
 }
