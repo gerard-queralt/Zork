@@ -29,7 +29,7 @@ void Player::Get(Item* item)
 {
 	if (location->Contains(item)) {
 		if (item->CanBePicked()) {
-			this->AddEntity(item);
+			this->AddEntity(location->RemoveEntity(item));
 			cout << "Taken." << endl;
 		}
 		else {
@@ -43,4 +43,10 @@ void Player::Get(Item* item)
 
 void Player::Drop(Item* item)
 {
+	if (this->Contains(item)) {
+		location->AddEntity(this->RemoveEntity(item));
+	}
+	else {
+		cout << "You don't have that." << endl;
+	}
 }
