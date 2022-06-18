@@ -4,6 +4,7 @@
 #include "Models/MoveCommand.h"
 #include "Models/GetCommand.h"
 #include "Models/DropCommand.h"
+#include "Models/OpenCommand.h"
 #include "EntityFinder.h"
 #include "Entities/Item.h"
 
@@ -66,6 +67,17 @@ Command* CommandParser::ParseCommand(const string& args)
 			if (eTarget != NULL && eTarget->getType() == ITEM) {
 				Item* target = (Item*)eTarget;
 				return new DropCommand(target);
+			}
+			cout << "That's not an item." << endl;
+			return NULL;
+		}
+
+		//check if open command
+		if (split.size() == 2 && split[0] == "open") {
+			Entity* eTarget = FindTarget(split[1]);
+			if (eTarget != NULL && eTarget->getType() == ITEM) {
+				Item* target = (Item*)eTarget;
+				return new OpenCommand(target);
 			}
 			cout << "That's not an item." << endl;
 			return NULL;

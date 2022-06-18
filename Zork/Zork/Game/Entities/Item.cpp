@@ -42,6 +42,7 @@ void Item::Open()
 	if (canBeClosed) {
 		if (closed) {
 			closed = false;
+			cout << "It opened." << endl;
 		}
 		else {
 			cout << "It's already open." << endl;
