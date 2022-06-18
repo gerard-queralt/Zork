@@ -11,6 +11,20 @@ Player::~Player()
 {
 }
 
+void Player::Look() const
+{
+	if (contains.empty()) {
+		cout << "You have nothing on you." << endl;
+	}
+	else {
+		cout << "You have:" << endl;
+		for (Entity* entity : contains) {
+			cout << "  ";
+			entity->Look();
+		}
+	}
+}
+
 void Player::Enter(Room* room)
 {
 	Creature::Enter(room);

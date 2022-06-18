@@ -10,6 +10,8 @@ public:
 	Player(const string& name, const string& description);
 	~Player();
 
+	void Look() const;
+
 	void Enter(Room* room);
 
 	void Move(Direction direction);
