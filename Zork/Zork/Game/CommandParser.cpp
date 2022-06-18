@@ -7,6 +7,7 @@
 #include "Models/OpenCommand.h"
 #include "Models/LookCommand.h"
 #include "Models/InventoryCommand.h"
+#include "Models/PutCommand.h"
 #include "EntityFinder.h"
 #include "Entities/Item.h"
 
@@ -93,6 +94,19 @@ Command* CommandParser::ParseCommand(const string& args)
 		//check if look command
 		if (split.size() == 1 && (split[0] == "inventory" || split[0] == "i")) {
 			return new InventoryCommand();
+		}
+
+		//check if put command
+		if (split.size() == 4 && (split[0] == "put" && split[2] == "in")) {
+			Entity* eTarget = FindTarget(split[1]);
+			Entity* eContainer = FindTarget(split[3]);
+			if (eTarget != NULL && eTarget->getType() == ITEM && eContainer != NULL && eContainer->getType() == ITEM) {
+				Item* target = (Item*)eTarget;
+				Item* container = (Item*)eContainer;
+				return new PutCommand(target, container);
+			}
+			cout << "That's not an item." << endl;
+			return NULL;
 		}
 	}
 
