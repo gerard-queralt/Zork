@@ -6,7 +6,7 @@
 class Item : public Entity
 {
 public:
-	Item(const string& name, const string& description, bool canBePicked);
+	Item(const string& name, const string& description, bool canBePicked, bool canBeClosed);
 	~Item();
 
 	void Look() const;
@@ -18,6 +18,7 @@ public:
 
 private:
 	bool canBePicked;
+	bool canBeClosed;
 	bool closed;
 };
 

@@ -30,8 +30,8 @@ vector<Item*> GameLoader::LoadItems()
 {
     vector<Item*> items;
 
-    Item* houseKey = new Item("Key", "a small key.", true);
-    Item* keyChest = new Item("Chest", "a small chest with its lid ajar.", true);
+    Item* houseKey = new Item("Key", "a small key.", true, false);
+    Item* keyChest = new Item("Chest", "a small chest with its lid ajar.", false, true);
 
     keyChest->AddEntity(houseKey);
     keyChest->Close();

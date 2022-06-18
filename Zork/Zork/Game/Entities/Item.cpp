@@ -1,10 +1,11 @@
 #include "Item.h"
 #include <iostream>
 
-Item::Item(const string& name, const string& description, bool canBePicked) : Entity(name, description)
+Item::Item(const string& name, const string& description, bool canBePicked, bool canBeClosed) : Entity(name, description)
 {
 	this->type = ITEM;
 	this->canBePicked = canBePicked;
+	this->canBeClosed = canBeClosed;
 	this->closed = false;
 }
 
@@ -31,10 +32,22 @@ bool Item::CanBePicked()
 
 void Item::Close()
 {
-	closed = true;
+	if (canBeClosed) {
+		closed = true;
+	}
 }
 
 void Item::Open()
 {
-	closed = false;
+	if (canBeClosed) {
+		if (closed) {
+			closed = false;
+		}
+		else {
+			cout << "It's already open." << endl;
+		}
+	}
+	else {
+		cout << "You can't open or close that." << endl;
+	}
 }
