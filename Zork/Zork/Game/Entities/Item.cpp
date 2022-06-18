@@ -19,6 +19,16 @@ void Item::Look() const
 	LookContents();
 }
 
+void Item::AddEntity(Entity* entity)
+{
+	if (!closed) {
+		Entity::AddEntity(entity);
+	}
+	else {
+		cout << "You can't put that in there, it's closed." << endl;
+	}
+}
+
 bool Item::Contains(Entity* entity)
 {
 	if (!closed) {

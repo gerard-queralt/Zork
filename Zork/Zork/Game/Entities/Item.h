@@ -11,6 +11,7 @@ public:
 
 	void Look() const;
 
+	void AddEntity(Entity* entity);
 	bool Contains(Entity* entity);
 
 	bool CanBePicked();
