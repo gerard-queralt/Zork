@@ -16,13 +16,7 @@ Item::~Item()
 void Item::Look() const
 {
 	Entity::Look();
-	if (!contains.empty() && !closed) {
-		cout << "Inside of it are:" << endl;
-		for (Entity* entity : contains) {
-			cout << "\t";
-			entity->Look();
-		}
-	}
+	LookContents();
 }
 
 bool Item::CanBePicked()
@@ -43,6 +37,7 @@ void Item::Open()
 		if (closed) {
 			closed = false;
 			cout << "It opened." << endl;
+			LookContents();
 		}
 		else {
 			cout << "It's already open." << endl;
@@ -50,5 +45,16 @@ void Item::Open()
 	}
 	else {
 		cout << "You can't open or close that." << endl;
+	}
+}
+
+void Item::LookContents() const
+{
+	if (!contains.empty() && !closed) {
+		cout << "Inside of it are:" << endl;
+		for (Entity* entity : contains) {
+			cout << "  ";
+			entity->Look();
+		}
 	}
 }

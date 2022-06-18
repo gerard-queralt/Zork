@@ -17,6 +17,8 @@ public:
 	void Open();
 
 private:
+	void LookContents() const;
+
 	bool canBePicked;
 	bool canBeClosed;
 	bool closed;
