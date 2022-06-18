@@ -5,6 +5,7 @@
 #include "Models/GetCommand.h"
 #include "Models/DropCommand.h"
 #include "Models/OpenCommand.h"
+#include "Models/LookCommand.h"
 #include "EntityFinder.h"
 #include "Entities/Item.h"
 
@@ -81,6 +82,11 @@ Command* CommandParser::ParseCommand(const string& args)
 			}
 			cout << "That's not an item." << endl;
 			return NULL;
+		}
+
+		//check if look command
+		if (split.size() == 1 && split[0] == "look") {
+			return new LookCommand();
 		}
 	}
 
