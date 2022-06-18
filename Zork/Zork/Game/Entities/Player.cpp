@@ -40,3 +40,7 @@ void Player::Get(Item* item)
 		cout << "That's not an item in this room." << endl;
 	}
 }
+
+void Player::Drop(Item* item)
+{
+}

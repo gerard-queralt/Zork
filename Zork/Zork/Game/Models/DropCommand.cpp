@@ -11,4 +11,5 @@ DropCommand::~DropCommand()
 
 void DropCommand::Do(Player* player)
 {
+	player->Drop(target);
 }
