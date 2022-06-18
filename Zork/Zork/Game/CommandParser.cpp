@@ -6,6 +6,7 @@
 #include "Models/DropCommand.h"
 #include "Models/OpenCommand.h"
 #include "Models/LookCommand.h"
+#include "Models/InventoryCommand.h"
 #include "EntityFinder.h"
 #include "Entities/Item.h"
 
@@ -87,6 +88,11 @@ Command* CommandParser::ParseCommand(const string& args)
 		//check if look command
 		if (split.size() == 1 && split[0] == "look") {
 			return new LookCommand();
+		}
+		
+		//check if look command
+		if (split.size() == 1 && (split[0] == "inventory" || split[0] == "i")) {
+			return new InventoryCommand();
 		}
 	}
 
