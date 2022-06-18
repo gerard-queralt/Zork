@@ -16,6 +16,7 @@ public:
 	void Get(Item* item);
 	void Drop(Item* item);
 	void Open(Item* item);
+	void LookAround();
 };
 
 #endif // _PLAYER_INCLUDE

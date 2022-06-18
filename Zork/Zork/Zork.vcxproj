@@ -150,6 +150,7 @@
     <ClCompile Include="Game\GameLoader.cpp" />
     <ClCompile Include="Game\Models\DropCommand.cpp" />
     <ClCompile Include="Game\Models\GetCommand.cpp" />
+    <ClCompile Include="Game\Models\LookCommand.cpp" />
     <ClCompile Include="Game\Models\MoveCommand.cpp" />
     <ClCompile Include="Game\Models\OpenCommand.cpp" />
     <ClCompile Include="Game\World.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="Game\Models\Command.h" />
     <ClInclude Include="Game\Models\DropCommand.h" />
     <ClInclude Include="Game\Models\GetCommand.h" />
+    <ClInclude Include="Game\Models\LookCommand.h" />
     <ClInclude Include="Game\Models\MoveCommand.h" />
     <ClInclude Include="Game\Models\OpenCommand.h" />
     <ClInclude Include="Game\World.h" />

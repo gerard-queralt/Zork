@@ -60,3 +60,8 @@ void Player::Open(Item* item)
 		cout << "That's not an item in this room." << endl;
 	}
 }
+
+void Player::LookAround()
+{
+	location->Look();
+}
