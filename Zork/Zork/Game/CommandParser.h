@@ -15,6 +15,7 @@ public:
 
 private:
 	vector<string> SplitString(const string& text);
+	Entity* FindTarget(string& targetName);
 
 	static map<string, Direction> directionShorthands;
 	vector<Entity*> worldEntities;

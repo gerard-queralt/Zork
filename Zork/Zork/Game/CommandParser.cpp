@@ -3,6 +3,7 @@
 #include <iostream>
 #include "Models/MoveCommand.h"
 #include "Models/GetCommand.h"
+#include "Models/DropCommand.h"
 #include "EntityFinder.h"
 #include "Entities/Item.h"
 
@@ -49,16 +50,25 @@ Command* CommandParser::ParseCommand(const string& args)
 
 		//check if get command
 		if (split.size() == 2 && (split[0] == "get" || split[0] == "take")) {
-			string targetName = split[1];
-			targetName[0] = toupper(targetName[0]); //allow name in lowercase
-			Entity* eTarget = EntityFinder::FindEntityByName(targetName, worldEntities);
+			Entity* eTarget = FindTarget(split[1]);
 			if (eTarget != NULL && eTarget->getType() == ITEM) {
 				Item* target = (Item*)eTarget;
 				return new GetCommand(target);
 			}
-			cout << "That's not an item in this room." << endl;
+			cout << "That's not an item." << endl;
 			return NULL;
 			
+		}
+
+		//check if drop command
+		if (split.size() == 2 && split[0] == "drop") {
+			Entity* eTarget = FindTarget(split[1]);
+			if (eTarget != NULL && eTarget->getType() == ITEM) {
+				Item* target = (Item*)eTarget;
+				return new DropCommand(target);
+			}
+			cout << "That's not an item." << endl;
+			return NULL;
 		}
 	}
 
@@ -84,4 +94,10 @@ vector<string> CommandParser::SplitString(const string& text)
 		words.push_back(word);
 	}
 	return words;
+}
+
+Entity* CommandParser::FindTarget(string& targetName)
+{
+	targetName[0] = toupper(targetName[0]); //allow name in lowercase
+	return EntityFinder::FindEntityByName(targetName, worldEntities);
 }
