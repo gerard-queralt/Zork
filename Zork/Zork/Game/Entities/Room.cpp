@@ -36,6 +36,22 @@ bool Room::Contains(Entity* entity)
 	return false;
 }
 
+Entity* Room::RemoveEntity(Entity* entity)
+{
+	if (Entity::Contains(entity)) {
+		return Entity::RemoveEntity(entity);
+	}
+	for (Entity* eInRoom : contains) {
+		if (eInRoom->getType() == ITEM) {
+			Entity* eRemoved = eInRoom->RemoveEntity(entity);
+			if (eRemoved != NULL) {
+				return eRemoved;
+			}
+		}
+	}
+	return NULL;
+}
+
 Room* Room::AccessRoomInDirection(Direction direction, const list<Entity*>& playerInventory)
 {
 	for (Entity* entity : contains) {

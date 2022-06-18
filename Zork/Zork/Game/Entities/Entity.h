@@ -19,7 +19,7 @@ public:
 	EntityType getType();
 	void AddEntity(Entity* entity);
 	virtual bool Contains(Entity* entity);
-	Entity* RemoveEntity(Entity* entity);
+	virtual Entity* RemoveEntity(Entity* entity);
 
 protected:
 	string name;
