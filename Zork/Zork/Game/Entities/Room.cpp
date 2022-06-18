@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Room.h"
 #include "Exit.h"
-#include "../EntityFinder.h"
 
 Room::Room(const string& name, const string& description) : Entity(name, description)
 {
@@ -19,13 +18,6 @@ void Room::Look() const
 	for (Entity* entity : contains) {
 		entity->Look();
 	}
-}
-
-bool Room::EntityInRoom(const string& entityName)
-{
-	vector<Entity*> vContains(contains.begin(), contains.end());
-	Entity* entity = EntityFinder::FindEntityByName(entityName, vContains);
-	return entity != NULL;
 }
 
 Room* Room::AccessRoomInDirection(Direction direction, const list<Entity*>& playerInventory)

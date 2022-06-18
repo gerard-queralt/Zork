@@ -37,3 +37,17 @@ void Entity::AddEntity(Entity* entity)
 		contains.push_back(entity);
 	}
 }
+
+bool Entity::Contains(Entity* entity)
+{
+	return find(contains.begin(), contains.end(), entity) != contains.end();
+}
+
+Entity* Entity::RemoveEntity(Entity* entity)
+{
+	if (Contains(entity)) {
+		contains.remove(entity);
+		return entity;
+	}
+	return NULL;
+}

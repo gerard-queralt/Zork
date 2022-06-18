@@ -27,7 +27,7 @@ void Player::Move(Direction direction)
 
 void Player::Get(Item* item)
 {
-	if (location->EntityInRoom(item->getName())) {
+	if (location->Contains(item)) {
 		if (item->CanBePicked()) {
 			this->AddEntity(item);
 			cout << "Taken." << endl;
