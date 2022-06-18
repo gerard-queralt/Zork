@@ -43,14 +43,14 @@ vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& existingEntities)
 
     Room* westHouse = new Room("West of House", "This is an open field west of a white house, with a boarded front door.");
 
-    Room* livingRoom = new Room("Living Room", "You are in the living room.");
+    Room* house = new Room("House", "You are in the living room of the house.");
 
     Room* forest = new Room("Forest", "This is a forest, with trees in all directions around you.\nYou feel like you shouldn't go further.");
     Entity* houseKey = EntityFinder::FindEntityByName("Key", existingEntities);
     forest->AddEntity(houseKey);
 
     rooms.push_back(westHouse);
-    rooms.push_back(livingRoom);
+    rooms.push_back(house);
     rooms.push_back(forest);
 
     return rooms;
@@ -61,13 +61,14 @@ vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& existingEntities)
     vector<Exit*> exits;
 
     Entity* westHouse = EntityFinder::FindEntityByName("West of House", existingEntities);
-    Entity* livingRoom = EntityFinder::FindEntityByName("Living Room", existingEntities);
+    Entity* house = EntityFinder::FindEntityByName("House", existingEntities);
     Entity* forest = EntityFinder::FindEntityByName("Forest", existingEntities);
-    if (westHouse->getType() == ROOM && livingRoom->getType() == ROOM) {
-        Exit* westToLiving = new Exit("House door", "The door to the house seems open.", EAST, (Room*)westHouse, (Room*)livingRoom);
-        westHouse->AddEntity(westToLiving);
-        livingRoom->AddEntity(westToLiving->Reverse());
-        exits.push_back(westToLiving);
+    if (westHouse->getType() == ROOM && house->getType() == ROOM) {
+        Exit* westToHouse = new Exit("House door", "There is a door with an ornate keyhole.", EAST, (Room*)westHouse, (Room*)house);
+        westToHouse->LockWith("Key");
+        westHouse->AddEntity(westToHouse);
+        house->AddEntity(westToHouse->Reverse());
+        exits.push_back(westToHouse);
     }
     if (westHouse->getType() == ROOM && forest->getType() == ROOM) {
         Exit* westToForest = new Exit("Entrance Forest", "There is a faded path between two trees.", WEST, (Room*)westHouse, (Room*)forest);
