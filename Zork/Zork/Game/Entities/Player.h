@@ -15,6 +15,7 @@ public:
 	void Move(Direction direction);
 	void Get(Item* item);
 	void Drop(Item* item);
+	void Open(Item* item);
 };
 
 #endif // _PLAYER_INCLUDE

@@ -50,3 +50,13 @@ void Player::Drop(Item* item)
 		cout << "You don't have that." << endl;
 	}
 }
+
+void Player::Open(Item* item)
+{
+	if (this->Contains(item)) {
+		item->Open();
+	}
+	else {
+		cout << "That's not an item in this room." << endl;
+	}
+}
