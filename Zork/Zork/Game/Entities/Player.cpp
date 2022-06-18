@@ -79,3 +79,13 @@ void Player::LookAround()
 {
 	location->Look();
 }
+
+void Player::Put(Item* item, Item* container)
+{
+	if (this->Contains(item) && location->Contains(container)) {
+		container->AddEntity(this->RemoveEntity(item));
+	}
+	else {
+		cout << "You don't have that." << endl;
+	}
+}

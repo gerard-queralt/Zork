@@ -19,6 +19,7 @@ public:
 	void Drop(Item* item);
 	void Open(Item* item);
 	void LookAround();
+	void Put(Item* item, Item* container);
 };
 
 #endif // _PLAYER_INCLUDE
