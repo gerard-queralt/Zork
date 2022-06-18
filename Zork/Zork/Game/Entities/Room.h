@@ -14,6 +14,8 @@ public:
 
 	void Look() const;
 
+	bool Contains(Entity* entity);
+
 	Room* AccessRoomInDirection(Direction direction, const list<Entity*>& playerInventory);
 };
 

@@ -23,6 +23,19 @@ void Room::Look() const
 	}
 }
 
+bool Room::Contains(Entity* entity)
+{
+	if (Entity::Contains(entity)) {
+		return true;
+	}
+	for (Entity* eInRoom : contains) {
+		if (eInRoom->getType() == ITEM && eInRoom->Contains(entity)) {
+			return true;
+		}
+	}
+	return false;
+}
+
 Room* Room::AccessRoomInDirection(Direction direction, const list<Entity*>& playerInventory)
 {
 	for (Entity* entity : contains) {

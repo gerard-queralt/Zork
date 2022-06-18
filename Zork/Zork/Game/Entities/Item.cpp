@@ -19,6 +19,14 @@ void Item::Look() const
 	LookContents();
 }
 
+bool Item::Contains(Entity* entity)
+{
+	if (!closed) {
+		return Entity::Contains(entity);
+	}
+	return false;
+}
+
 bool Item::CanBePicked()
 {
 	return canBePicked;
