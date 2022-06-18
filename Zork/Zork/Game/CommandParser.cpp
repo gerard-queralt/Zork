@@ -19,7 +19,11 @@ map<string, Direction> CommandParser::directionShorthands = {
 	{"east", EAST},
 	{"e", EAST},
 	{"west", WEST},
-	{"w", WEST}
+	{"w", WEST},
+	{"up", UP},
+	{"u", UP},
+	{"down", DOWN},
+	{"d", DOWN}
 };
 
 CommandParser::CommandParser(const vector<Entity*>& worldEntities)

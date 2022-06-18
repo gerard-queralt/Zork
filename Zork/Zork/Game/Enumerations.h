@@ -16,6 +16,8 @@ enum Direction {
 	SOUTH,
 	EAST,
 	WEST,
+	UP,
+	DOWN,
 	NUM_DIRECTIONS
 };
 

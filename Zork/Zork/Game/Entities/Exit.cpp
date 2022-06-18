@@ -5,10 +5,12 @@
 #include "../EntityFinder.h"
 
 map<Direction, string> Exit::directionName = {
-	{NORTH, "north"},
-	{SOUTH, "south"},
-	{EAST, "east"},
-	{WEST, "west"}
+	{NORTH, "to the north"},
+	{SOUTH, "to the south"},
+	{EAST, "to the east"},
+	{WEST, "to the west"},
+	{UP, "up from here"},
+	{DOWN, "down from here"},
 };
 
 Exit::Exit(const string& name, const string& description, Direction direction, Room* from, Room* to) : Entity(name, description)
@@ -26,7 +28,7 @@ Exit::~Exit()
 
 void Exit::Look() const
 {
-	cout << "You see the " << to->getName() << " to the " << directionName[direction] << ". ";
+	cout << "You see the " << to->getName() << " " << directionName[direction] << ". ";
 	Entity::Look();
 }
 
