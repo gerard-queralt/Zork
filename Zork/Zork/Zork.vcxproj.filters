@@ -63,6 +63,9 @@
     <ClCompile Include="Game\Models\LookCommand.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Models\InventoryCommand.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Entities\Entity.h">
@@ -114,6 +117,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Game\Models\LookCommand.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Models\InventoryCommand.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
