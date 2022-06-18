@@ -53,7 +53,7 @@ void Player::Drop(Item* item)
 
 void Player::Open(Item* item)
 {
-	if (this->Contains(item)) {
+	if (location->Contains(item)) {
 		item->Open();
 	}
 	else {
