@@ -59,6 +59,7 @@ void Player::Drop(Item* item)
 {
 	if (this->Contains(item)) {
 		location->AddEntity(this->RemoveEntity(item));
+		cout << "Dropped." << endl;
 	}
 	else {
 		cout << "You don't have that." << endl;
@@ -84,6 +85,9 @@ void Player::Put(Item* item, Item* container)
 {
 	if (this->Contains(item) && location->Contains(container)) {
 		container->AddEntity(this->RemoveEntity(item));
+		if (container->Contains(item)) { //added successfully
+			cout << "Item put." << endl;
+		}
 	}
 	else {
 		cout << "You don't have that." << endl;
