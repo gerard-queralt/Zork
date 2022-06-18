@@ -31,8 +31,13 @@ vector<Item*> GameLoader::LoadItems()
     vector<Item*> items;
 
     Item* houseKey = new Item("Key", "a small key.", true);
+    Item* keyChest = new Item("Chest", "a small chest with its lid ajar.", true);
+
+    keyChest->AddEntity(houseKey);
+    keyChest->Close();
 
     items.push_back(houseKey);
+    items.push_back(keyChest);
 
     return items;
 }
@@ -46,8 +51,8 @@ vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& existingEntities)
     Room* house = new Room("House", "You are in the living room of the house.");
 
     Room* forest = new Room("Forest", "This is a forest, with trees in all directions around you.\nYou feel like you shouldn't go further.");
-    Entity* houseKey = EntityFinder::FindEntityByName("Key", existingEntities);
-    forest->AddEntity(houseKey);
+    Entity* keyChest = EntityFinder::FindEntityByName("Chest", existingEntities);
+    forest->AddEntity(keyChest);
 
     rooms.push_back(westHouse);
     rooms.push_back(house);
