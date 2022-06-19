@@ -19,6 +19,15 @@ void Npc::Update()
 	}
 }
 
+void Npc::Look() const
+{
+	Entity::Look();
+	if (m_weapon != NULL) {
+		cout << "It's holding ";
+		m_weapon->Look();
+	}
+}
+
 void Npc::Drop(Item* i_item)
 {
 	cout << "They drop ";

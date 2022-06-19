@@ -75,6 +75,9 @@ void Player::SetWeapon(Item* i_weapon)
 	if (m_weapon == i_weapon) { //succesfully equiped
 		cout << "Equiped " << m_weapon->GetName() << "." << endl;
 	}
+	else {
+		cout << "You don't have that item." << endl;
+	}
 }
 
 void Player::Open(Item* i_item)
@@ -110,7 +113,27 @@ void Player::Attack(Creature* i_target, Item* i_weapon)
 	if (i_weapon != NULL) {
 		SetWeapon(i_weapon);
 	}
-	SetCombatTarget(i_target);
-	AttackTargetWithWeapon();
-	SetCombatTarget(NULL);
+	if (m_weapon != NULL) {
+		SetCombatTarget(i_target);
+		if (CanAttackTarget()) {
+			cout << "You attack the " << m_combatTarget->GetName() << " with a " << m_weapon->GetName() << "." << endl;
+			AttackTargetWithWeapon();
+		}
+		else {
+			cout << "You can't attack that." << endl;
+		}
+		SetCombatTarget(NULL);
+	}
+	else {
+		cout << "You don't have a weapon equiped." << endl;
+	}
+}
+
+void Player::TakeDamage(int i_dmg)
+{
+	cout << "You take " << i_dmg << " damage." << endl;
+	Creature::TakeDamage(i_dmg);
+	if (!IsDead()) {
+		cout << "You have " << m_curHP << " hit points remaining." << endl;
+	}
 }

@@ -11,6 +11,8 @@ public:
 	~Npc();
 	virtual void Update();
 
+	void Look() const;
+
 	void Drop(Item* i_item);
 
 protected:
