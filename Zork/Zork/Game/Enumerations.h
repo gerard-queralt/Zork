@@ -7,6 +7,7 @@ enum EntityType {
 	EXIT,
 	ITEM,
 	CREATURE,
+	NPC,
 	PLAYER,
 	NUM_TYPES
 };
