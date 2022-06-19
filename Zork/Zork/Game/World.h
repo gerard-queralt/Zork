@@ -13,6 +13,7 @@ public:
 	World();
 	~World();
 	void Update(const string& args);
+
 private:
 	Player* player;
 	vector<Entity*> entities;

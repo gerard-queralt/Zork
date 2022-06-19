@@ -14,13 +14,13 @@ public:
 
 	void Look() const;
 
-	Direction getDirection();
-	Room* getRoomFrom(Room* from);
+	Direction GetDirection();
+	Room* GetRoomFrom(Room* from);
 	void AddSelfToRooms();
 	Exit* Reverse();
 	void LockWith(const string& keyName);
 	bool Unlock(const list<Entity*>& inventory);
-	bool isLocked();
+	bool IsLocked();
 
 private:
 	static map<Direction, string> directionName;

@@ -15,8 +15,8 @@ public:
 
 	virtual void Look() const;
 
-	string getName();
-	EntityType getType();
+	string GetName();
+	EntityType GetType();
 	virtual void AddEntity(Entity* entity);
 	virtual bool Contains(Entity* entity);
 	virtual Entity* RemoveEntity(Entity* entity);
