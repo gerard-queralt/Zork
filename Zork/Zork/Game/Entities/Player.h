@@ -26,6 +26,7 @@ public:
 
 protected:
 	void TakeDamage(int i_dmg);
+	void Die();
 };
 
 #endif // _PLAYER_INCLUDE

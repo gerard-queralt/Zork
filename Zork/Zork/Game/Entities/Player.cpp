@@ -148,3 +148,8 @@ void Player::TakeDamage(int i_dmg)
 		cout << "You have " << m_curHP << " hit points remaining." << endl;
 	}
 }
+
+void Player::Die()
+{
+	cout << "You are dead." << endl;
+}
