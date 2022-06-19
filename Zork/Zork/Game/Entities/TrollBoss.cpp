@@ -39,6 +39,7 @@ void TrollBoss::Update()
 void TrollBoss::Die()
 {
 	cout << "The beast falls to the ground, dead." << endl;
+	m_dead = true;
 	cout << "You did it! You can explore the rest of the dungeon now... If there was any." << endl;
 	cout << "Thanks for playong! Be sure to check out the original Zork if you enjoyed this small tribute!" << endl;
 }

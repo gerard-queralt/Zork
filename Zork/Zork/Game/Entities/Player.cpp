@@ -152,4 +152,5 @@ void Player::TakeDamage(int i_dmg)
 void Player::Die()
 {
 	cout << "You are dead." << endl;
+	m_dead = true;
 }
