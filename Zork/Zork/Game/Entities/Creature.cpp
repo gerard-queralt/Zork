@@ -51,4 +51,9 @@ void Creature::TakeDamage(int i_dmg)
 
 void Creature::Die()
 {
+	for (Entity* entity : m_contains) {
+		if (entity->GetType() == ITEM) {
+			Drop((Item*)entity);
+		}
+	}
 }
