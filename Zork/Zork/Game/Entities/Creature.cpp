@@ -52,7 +52,7 @@ bool Creature::IsDead()
 
 void Creature::AttackTargetWithWeapon()
 {
-	if (m_combatTarget != NULL && m_weapon != NULL && m_location->Contains(m_combatTarget)) {
+	if (m_combatTarget != NULL && m_weapon != NULL && m_combatTarget->m_location == m_location) {
 		m_combatTarget->TakeDamage(m_weapon->GetDamage());
 	}
 }
