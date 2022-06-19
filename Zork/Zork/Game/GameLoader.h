@@ -7,6 +7,7 @@
 #include "Entities/Item.h"
 #include "Entities/Room.h"
 #include "Entities/Exit.h"
+#include "Entities/NPC.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ private:
 	static vector<Item*> LoadItems();
 	static vector<Room*> LoadRooms(const vector<Entity*>& i_existingEntities);
 	static vector<Exit*> LoadExits(const vector<Entity*>& i_existingEntities);
+	static vector<Npc*> LoadNPCs(const vector<Entity*>& i_existingEntities);
 };
 
 #endif // _GAMELOADER_INCLUDE

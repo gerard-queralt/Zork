@@ -1,9 +1,13 @@
 #include "GameLoader.h"
 #include "EntityFinder.h"
+#include "Entities/TrollBoss.h"
 
 GameLoader::LoadedResult GameLoader::LoadEntities()
 {
     vector<Entity*> entities;
+
+    Player* player = new Player();
+    entities.push_back(player);
 
     vector<Item*> items = LoadItems();
     entities.insert(entities.end(), items.begin(), items.end());
@@ -14,10 +18,11 @@ GameLoader::LoadedResult GameLoader::LoadEntities()
     vector<Exit*> exits = LoadExits(entities);
     entities.insert(entities.end(), exits.begin(), exits.end());
 
-    Player* player = new Player("Hero", "That's you!");
-    player->Enter(rooms[0]);
+    vector<Npc*> npcs = LoadNPCs(entities);
+    entities.insert(entities.end(), npcs.begin(), npcs.end());
 
-    entities.push_back(player);
+    Entity* westHouse = EntityFinder::FindEntityByName("West of House", entities);
+    player->Enter((Room*)westHouse);
 
     LoadedResult result;
     result.o_player = player;
@@ -36,12 +41,16 @@ vector<Item*> GameLoader::LoadItems()
     keyChest->Close();
     Item* knife = new Item("Knife", "a kitchen knife", true, false, 5);
     Item* rune = new Item("Stone", "an odd stone with weird markings", true, false, 1);
-    Item* sword = new Item("Sword", "a sword with Stones carved over it.", true, false, 20);
+    Item* club = new Item("Club", "a wooden club with some bloodstains", true, false, 8);
+    Item* axe = new Item("Axe", "an huge double-edged axe.", true, false, 50);
+    Item* sword = new Item("Sword", "a sword with stones carved over it.", true, false, 20);
 
     items.push_back(houseKey);
     items.push_back(keyChest);
     items.push_back(knife);
     items.push_back(rune);
+    items.push_back(club);
+    items.push_back(axe);
     items.push_back(sword);
 
     return items;
@@ -68,8 +77,6 @@ vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& i_existingEntities)
     ancientRoom->AddEntity(sword);
 
     Room* smallCave = new Room("Small cave", "You are in a narrow room barely lit by the light coming from the house above.");
-    Entity* rune = EntityFinder::FindEntityByName("Stone", i_existingEntities);
-    smallCave->AddEntity(rune); //will be held by mob in the future
 
     Room* trollRoom = new Room("The Troll room", "You are in a tall and spacious room. Some natural light filters from the ceiling avobe. Bloodstains and deep scratches mar the walls.");
 
@@ -135,4 +142,37 @@ vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& i_existingEntities)
     }
 
     return exits;
+}
+
+vector<Npc*> GameLoader::LoadNPCs(const vector<Entity*>& i_existingEntities)
+{
+    vector<Npc*> npcs;
+
+    Creature* player = (Creature*)EntityFinder::FindEntityByName("Hero", i_existingEntities);
+
+    Entity* smallCave = EntityFinder::FindEntityByName("Small cave", i_existingEntities);
+
+    if (smallCave->GetType() == ROOM) {
+        Npc* smallTroll = new Npc("Troll", "a troll of similar height to yours.", (Room*)smallCave, 10);
+        Entity* rune = EntityFinder::FindEntityByName("Stone", i_existingEntities);
+        Entity* club = EntityFinder::FindEntityByName("Club", i_existingEntities);
+        smallTroll->AddEntity(rune);
+        smallTroll->AddEntity(club);
+        smallTroll->SetWeapon((Item*)club);
+        smallTroll->SetCombatTarget(player);
+        npcs.push_back(smallTroll);
+    }
+
+    Entity* trollRoom = EntityFinder::FindEntityByName("The Troll room", i_existingEntities);
+
+    if (trollRoom->GetType() == ROOM) {
+        Npc* trollBoss = new TrollBoss((Room*)trollRoom);
+        Entity* axe = EntityFinder::FindEntityByName("Axe", i_existingEntities);
+        trollBoss->AddEntity(axe);
+        trollBoss->SetWeapon((Item*)axe);
+        trollBoss->SetCombatTarget(player);
+        npcs.push_back(trollBoss);
+    }
+
+    return npcs;
 }
