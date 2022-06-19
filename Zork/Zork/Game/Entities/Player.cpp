@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Player::Player(const string& name, const string& description) : Creature(name, description, NULL)
+Player::Player(const string& name, const string& description) : Creature(name, description, NULL, 25) //no need to set maxHP externally
 {
 	type = PLAYER;
 }

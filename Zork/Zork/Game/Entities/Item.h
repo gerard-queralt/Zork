@@ -19,6 +19,8 @@ public:
 	void Close();
 	void Open();
 
+	int GetDamage();
+
 private:
 	void LookContents() const;
 

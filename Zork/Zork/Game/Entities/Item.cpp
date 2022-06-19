@@ -67,6 +67,11 @@ void Item::Open()
 	}
 }
 
+int Item::GetDamage()
+{
+	return damage;
+}
+
 void Item::LookContents() const
 {
 	if (!contains.empty() && !closed) {
