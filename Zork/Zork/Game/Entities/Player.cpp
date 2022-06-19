@@ -58,7 +58,7 @@ void Player::Get(Item* i_item)
 void Player::Drop(Item* i_item)
 {
 	if (this->Contains(i_item)) {
-		m_location->AddEntity(this->RemoveEntity(i_item));
+		Creature::Drop(i_item);
 		cout << "Dropped." << endl;
 	}
 	else {

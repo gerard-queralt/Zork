@@ -19,6 +19,11 @@ void Creature::Enter(Room* i_room)
 	m_location = i_room;
 }
 
+void Creature::Drop(Item* i_item)
+{
+	m_location->AddEntity(this->RemoveEntity(i_item));
+}
+
 void Creature::SetCombatTarget(Creature* i_combatTarget)
 {
 	m_combatTarget = i_combatTarget;

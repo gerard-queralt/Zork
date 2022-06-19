@@ -12,6 +12,7 @@ public:
 	~Creature();
 
 	virtual void Enter(Room* i_room);
+	virtual void Drop(Item* i_item);
 	void SetCombatTarget(Creature* i_combatTarget);
 	void SetWeapon(Item* i_weapon);
 
