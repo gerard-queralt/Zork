@@ -82,4 +82,5 @@ void Creature::Die()
 			Drop((Item*)(*cur));
 		}
 	}
+	m_location->RemoveEntity(this);
 }
