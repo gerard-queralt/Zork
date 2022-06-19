@@ -10,11 +10,13 @@ class Creature : public Entity
 public:
 	Creature(const string& i_name, const string& i_description, Room* i_location, int i_maxHP);
 	~Creature();
+	virtual void Update();
 
 	virtual void Enter(Room* i_room);
 	virtual void Drop(Item* i_item);
 	void SetCombatTarget(Creature* i_combatTarget);
 	void SetWeapon(Item* i_weapon);
+	bool IsDead();
 
 protected:
 	virtual void AttackTargetWithWeapon();
@@ -23,6 +25,7 @@ protected:
 
 	int m_maxHP;
 	int m_curHP;
+	bool m_dead;
 	Room* m_location;
 	Creature* m_combatTarget;
 	Item* m_weapon;

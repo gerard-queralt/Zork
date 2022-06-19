@@ -7,11 +7,19 @@ Creature::Creature(const string& i_name, const string& i_description, Room* i_lo
 	m_curHP = i_maxHP;
 	m_combatTarget = NULL;
 	m_weapon = NULL;
+	m_dead = false;
 	m_type = CREATURE;
 }
 
 Creature::~Creature()
 {
+}
+
+void Creature::Update()
+{
+	if (!IsDead()) {
+		Entity::Update();
+	}
 }
 
 void Creature::Enter(Room* i_room)
@@ -34,6 +42,11 @@ void Creature::SetWeapon(Item* i_weapon)
 	m_weapon = i_weapon;
 }
 
+bool Creature::IsDead()
+{
+	return m_dead;
+}
+
 void Creature::AttackTargetWithWeapon()
 {
 	if (m_combatTarget != NULL && m_weapon != NULL) {
@@ -51,6 +64,7 @@ void Creature::TakeDamage(int i_dmg)
 
 void Creature::Die()
 {
+	m_dead = true;
 	for (Entity* entity : m_contains) {
 		if (entity->GetType() == ITEM) {
 			Drop((Item*)entity);
