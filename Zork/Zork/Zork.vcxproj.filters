@@ -81,6 +81,9 @@
     <ClCompile Include="Game\Models\EquipCommand.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Models\UnequipCommand.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Entities\Entity.h">
@@ -150,6 +153,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Game\Models\EquipCommand.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Models\UnequipCommand.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

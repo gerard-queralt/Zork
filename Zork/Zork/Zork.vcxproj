@@ -159,6 +159,7 @@
     <ClCompile Include="Game\Models\MoveCommand.cpp" />
     <ClCompile Include="Game\Models\OpenCommand.cpp" />
     <ClCompile Include="Game\Models\PutCommand.cpp" />
+    <ClCompile Include="Game\Models\UnequipCommand.cpp" />
     <ClCompile Include="Game\World.cpp" />
     <ClCompile Include="Zork.cpp" />
   </ItemGroup>
@@ -185,6 +186,7 @@
     <ClInclude Include="Game\Models\MoveCommand.h" />
     <ClInclude Include="Game\Models\OpenCommand.h" />
     <ClInclude Include="Game\Models\PutCommand.h" />
+    <ClInclude Include="Game\Models\UnequipCommand.h" />
     <ClInclude Include="Game\World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

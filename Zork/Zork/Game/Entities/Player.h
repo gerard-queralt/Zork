@@ -22,6 +22,7 @@ public:
 	void LookAround();
 	void Put(Item* i_item, Item* i_container);
 	void Attack(Creature* i_target, Item* i_weapon);
+	void Unequip();
 
 protected:
 	void TakeDamage(int i_dmg);

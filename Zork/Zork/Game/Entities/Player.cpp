@@ -129,6 +129,17 @@ void Player::Attack(Creature* i_target, Item* i_weapon)
 	}
 }
 
+void Player::Unequip()
+{
+	if (m_weapon != NULL) {
+		m_weapon = NULL;
+		cout << "Unequiped." << endl;
+	}
+	else {
+		cout << "You have nothing equiped." << endl;
+	}
+}
+
 void Player::TakeDamage(int i_dmg)
 {
 	cout << "You take " << i_dmg << " damage." << endl;
