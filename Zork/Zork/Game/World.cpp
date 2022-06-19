@@ -26,7 +26,7 @@ void World::Update(const string& i_args)
 		entity->Update();
 	}
 	Command* command = m_parser->ParseCommand(i_args);
-	if (command != NULL) {
+	if (command != NULL && !m_player->IsDead()) {
 		command->Do(m_player);
 		delete command;
 	}
