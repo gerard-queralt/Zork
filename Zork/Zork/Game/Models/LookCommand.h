@@ -9,7 +9,7 @@ public:
 	LookCommand();
 	~LookCommand();
 	
-	void Do(Player* player);
+	void Do(Player* i_player);
 };
 
 #endif // _LOOKCOMMAND_INCLUDE

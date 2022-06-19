@@ -1,15 +1,15 @@
 #include "MoveCommand.h"
 
-MoveCommand::MoveCommand(Direction direction)
+MoveCommand::MoveCommand(Direction i_direction)
 {
-	this->direction = direction;
+	m_direction = i_direction;
 }
 
 MoveCommand::~MoveCommand()
 {
 }
 
-void MoveCommand::Do(Player* player)
+void MoveCommand::Do(Player* i_player)
 {
-	player->Move(direction);
+	i_player->Move(m_direction);
 }

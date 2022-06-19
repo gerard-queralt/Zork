@@ -14,16 +14,16 @@ class GameLoader
 {
 public:
 	struct LoadedResult {
-		Player* player;
-		vector<Entity*> entities;
+		Player* o_player;
+		vector<Entity*> o_entities;
 	};
 
 	static LoadedResult LoadEntities();
 
 private:
 	static vector<Item*> LoadItems();
-	static vector<Room*> LoadRooms(const vector<Entity*>& existingEntities);
-	static vector<Exit*> LoadExits(const vector<Entity*>& existingEntities);
+	static vector<Room*> LoadRooms(const vector<Entity*>& i_existingEntities);
+	static vector<Exit*> LoadExits(const vector<Entity*>& i_existingEntities);
 };
 
 #endif // _GAMELOADER_INCLUDE

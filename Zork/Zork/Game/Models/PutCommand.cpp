@@ -1,16 +1,16 @@
 #include "PutCommand.h"
 
-PutCommand::PutCommand(Item* target, Item* container)
+PutCommand::PutCommand(Item* i_target, Item* i_container)
 {
-	this->target = target;
-	this->container = container;
+	m_target = i_target;
+	m_container = i_container;
 }
 
 PutCommand::~PutCommand()
 {
 }
 
-void PutCommand::Do(Player* player)
+void PutCommand::Do(Player* i_player)
 {
-	player->Put(target, container);
+	i_player->Put(m_target, m_container);
 }

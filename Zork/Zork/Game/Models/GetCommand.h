@@ -7,12 +7,12 @@
 class GetCommand : public Command
 {
 public:
-	GetCommand(Item* target);
+	GetCommand(Item* i_target);
 	~GetCommand();
-	void Do(Player* player);
+	void Do(Player* i_player);
 
 private:
-	Item* target;
+	Item* m_target;
 };
 
 #endif // _GETCOMMAND_INCLUDE

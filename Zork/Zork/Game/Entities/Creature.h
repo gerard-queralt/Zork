@@ -8,23 +8,23 @@
 class Creature : public Entity
 {
 public:
-	Creature(const string& name, const string& description, Room* location, int maxHP);
+	Creature(const string& i_name, const string& i_description, Room* i_location, int i_maxHP);
 	~Creature();
 
-	virtual void Enter(Room* room);
-	void SetCombatTarget(Creature* combatTarget);
-	void SetWeapon(Item* weapon);
+	virtual void Enter(Room* i_room);
+	void SetCombatTarget(Creature* i_combatTarget);
+	void SetWeapon(Item* i_weapon);
 
 protected:
 	virtual void AttackTargetWithWeapon();
-	virtual void TakeDamage(int dmg);
+	virtual void TakeDamage(int i_dmg);
 	virtual void Die();
 
-	int maxHP;
-	int curHP;
-	Room* location;
-	Creature* combatTarget;
-	Item* weapon;
+	int m_maxHP;
+	int m_curHP;
+	Room* m_location;
+	Creature* m_combatTarget;
+	Item* m_weapon;
 };
 
 #endif // _CREATURE_INCLUDE

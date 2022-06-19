@@ -1,16 +1,16 @@
 #include "GetCommand.h"
 #include <iostream>
 
-GetCommand::GetCommand(Item* target)
+GetCommand::GetCommand(Item* i_target)
 {
-	this->target = target;
+	m_target = i_target;
 }
 
 GetCommand::~GetCommand()
 {
 }
 
-void GetCommand::Do(Player* player)
+void GetCommand::Do(Player* i_player)
 {
-	player->Get(target);
+	i_player->Get(m_target);
 }

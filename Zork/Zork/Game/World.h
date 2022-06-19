@@ -12,13 +12,13 @@ class World
 public:
 	World();
 	~World();
-	void Update(const string& args);
+	void Update(const string& i_args);
 
 private:
-	Player* player;
-	vector<Entity*> entities;
+	Player* m_player;
+	vector<Entity*> m_entities;
 
-	CommandParser* parser;
+	CommandParser* m_parser;
 };
 
 #endif // _WORLD_INCLUDE

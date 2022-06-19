@@ -8,7 +8,7 @@ class InventoryCommand : public Command
 public:
 	InventoryCommand();
 	~InventoryCommand();
-	void Do(Player* player);
+	void Do(Player* i_player);
 };
 
 #endif // _INVENTORYCOMMAND_INCLUDE

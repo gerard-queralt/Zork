@@ -1,15 +1,15 @@
 #include "OpenCommand.h"
 
-OpenCommand::OpenCommand(Item* target)
+OpenCommand::OpenCommand(Item* i_target)
 {
-	this->target = target;
+	m_target = i_target;
 }
 
 OpenCommand::~OpenCommand()
 {
 }
 
-void OpenCommand::Do(Player* player)
+void OpenCommand::Do(Player* i_player)
 {
-	player->Open(target);
+	i_player->Open(m_target);
 }

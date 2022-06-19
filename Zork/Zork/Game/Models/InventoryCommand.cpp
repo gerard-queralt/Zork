@@ -8,7 +8,7 @@ InventoryCommand::~InventoryCommand()
 {
 }
 
-void InventoryCommand::Do(Player* player)
+void InventoryCommand::Do(Player* i_player)
 {
-	player->Look();
+	i_player->Look();
 }

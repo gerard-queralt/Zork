@@ -8,7 +8,7 @@ LookCommand::~LookCommand()
 {
 }
 
-void LookCommand::Do(Player* player)
+void LookCommand::Do(Player* i_player)
 {
-	player->LookAround();
+	i_player->LookAround();
 }

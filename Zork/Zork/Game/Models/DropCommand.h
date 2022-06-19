@@ -7,12 +7,12 @@
 class DropCommand : public Command
 {
 public:
-	DropCommand(Item* target);
+	DropCommand(Item* i_target);
 	~DropCommand();
-	void Do(Player* player);
+	void Do(Player* i_player);
 
 private:
-	Item* target;
+	Item* m_target;
 };
 
 #endif // _DROPCOMMAND_INCLUDE

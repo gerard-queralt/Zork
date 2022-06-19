@@ -7,27 +7,27 @@
 World::World()
 {
 	GameLoader::LoadedResult loadData = GameLoader::LoadEntities();
-	entities = loadData.entities;
-	player = loadData.player;
-	parser = new CommandParser(entities);
+	m_entities = loadData.o_entities;
+	m_player = loadData.o_player;
+	m_parser = new CommandParser(m_entities);
 }
 
 World::~World()
 {
-	for (Entity* entity : entities) {
+	for (Entity* entity : m_entities) {
 		delete entity;
 	}
-	entities.clear();
+	m_entities.clear();
 }
 
-void World::Update(const string& args)
+void World::Update(const string& i_args)
 {
-	for (Entity* entity : entities) {
+	for (Entity* entity : m_entities) {
 		entity->Update();
 	}
-	Command* command = parser->ParseCommand(args);
+	Command* command = m_parser->ParseCommand(i_args);
 	if (command != NULL) {
-		command->Do(player);
+		command->Do(m_player);
 		delete command;
 	}
 }

@@ -1,11 +1,11 @@
 #include <iostream>
 #include "Entity.h"
 
-Entity::Entity(const string& name, const string& description)
+Entity::Entity(const string& i_name, const string& i_description)
 {
-	this->name = name;
-	this->description = description;
-	this->type = ENTITY;
+	m_name = i_name;
+	m_description = i_description;
+	m_type = ENTITY;
 }
 
 Entity::~Entity()
@@ -18,36 +18,36 @@ void Entity::Update()
 
 void Entity::Look() const
 {
-	std::cout << description << endl;
+	std::cout << m_description << endl;
 }
 
-string Entity::getName()
+string Entity::GetName()
 {
-	return name;
+	return m_name;
 }
 
-EntityType Entity::getType()
+EntityType Entity::GetType()
 {
-	return type;
+	return m_type;
 }
 
-void Entity::AddEntity(Entity* entity)
+void Entity::AddEntity(Entity* i_entity)
 {
-	if (entity != NULL) {
-		contains.push_back(entity);
+	if (i_entity != NULL) {
+		m_contains.push_back(i_entity);
 	}
 }
 
-bool Entity::Contains(Entity* entity)
+bool Entity::Contains(Entity* i_entity)
 {
-	return find(contains.begin(), contains.end(), entity) != contains.end();
+	return find(m_contains.begin(), m_contains.end(), i_entity) != m_contains.end();
 }
 
-Entity* Entity::RemoveEntity(Entity* entity)
+Entity* Entity::RemoveEntity(Entity* i_entity)
 {
-	if (Contains(entity)) {
-		contains.remove(entity);
-		return entity;
+	if (Contains(i_entity)) {
+		m_contains.remove(i_entity);
+		return i_entity;
 	}
 	return NULL;
 }

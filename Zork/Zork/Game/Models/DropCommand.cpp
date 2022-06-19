@@ -1,15 +1,15 @@
 #include "DropCommand.h"
 
-DropCommand::DropCommand(Item* target)
+DropCommand::DropCommand(Item* i_target)
 {
-	this->target = target;
+	m_target = i_target;
 }
 
 DropCommand::~DropCommand()
 {
 }
 
-void DropCommand::Do(Player* player)
+void DropCommand::Do(Player* i_player)
 {
-	player->Drop(target);
+	i_player->Drop(m_target);
 }

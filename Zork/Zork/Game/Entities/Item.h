@@ -6,13 +6,13 @@
 class Item : public Entity
 {
 public:
-	Item(const string& name, const string& description, bool canBePicked, bool canBeClosed, int damage);
+	Item(const string& i_name, const string& i_description, bool i_canBePicked, bool i_canBeClosed, int i_damage);
 	~Item();
 
 	void Look() const;
 
-	void AddEntity(Entity* entity);
-	bool Contains(Entity* entity);
+	void AddEntity(Entity* i_entity);
+	bool Contains(Entity* i_entity);
 
 	bool CanBePicked();
 
@@ -24,10 +24,10 @@ public:
 private:
 	void LookContents() const;
 
-	bool canBePicked;
-	bool canBeClosed;
-	bool closed;
-	int damage;
+	bool m_canBePicked;
+	bool m_canBeClosed;
+	bool m_closed;
+	int m_damage;
 };
 
 #endif // _ITEM_INCLUDE

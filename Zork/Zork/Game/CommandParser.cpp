@@ -11,7 +11,7 @@
 #include "EntityFinder.h"
 #include "Entities/Item.h"
 
-map<string, Direction> CommandParser::directionShorthands = {
+map<string, Direction> CommandParser::s_directionShorthands = {
 	{"north", NORTH},
 	{"n", NORTH},
 	{"south", SOUTH},
@@ -26,30 +26,30 @@ map<string, Direction> CommandParser::directionShorthands = {
 	{"d", DOWN}
 };
 
-CommandParser::CommandParser(const vector<Entity*>& worldEntities)
+CommandParser::CommandParser(const vector<Entity*>& i_worldEntities)
 {
-	this->worldEntities = worldEntities;
+	m_worldEntities = i_worldEntities;
 }
 
 CommandParser::~CommandParser()
 {
 }
 
-Command* CommandParser::ParseCommand(const string& args)
+Command* CommandParser::ParseCommand(const string& i_args)
 {
-	vector<string> split = SplitString(args);
+	vector<string> split = SplitString(i_args);
 
 	if (!split.empty()) {
 		//all the conditions below could be better grouped to be more efficient, but I think it's more readable
 
 		//check if move command
-		if (split.size() == 1 && directionShorthands.find(split[0]) != directionShorthands.end()) {
-			Direction direction = directionShorthands[split[0]];
+		if (split.size() == 1 && s_directionShorthands.find(split[0]) != s_directionShorthands.end()) {
+			Direction direction = s_directionShorthands[split[0]];
 			return new MoveCommand(direction);
 		}
 		else if (split.size() == 2 && (split[0] == "move" || split[0] == "go")) {
-			if (directionShorthands.find(split[1]) != directionShorthands.end()) {
-				Direction direction = directionShorthands[split[1]];
+			if (s_directionShorthands.find(split[1]) != s_directionShorthands.end()) {
+				Direction direction = s_directionShorthands[split[1]];
 				return new MoveCommand(direction);
 			}
 			cout << "That's not a valid direction." << endl;
@@ -59,7 +59,7 @@ Command* CommandParser::ParseCommand(const string& args)
 		//check if get command
 		if (split.size() == 2 && (split[0] == "get" || split[0] == "take")) {
 			Entity* eTarget = FindTarget(split[1]);
-			if (eTarget != NULL && eTarget->getType() == ITEM) {
+			if (eTarget != NULL && eTarget->GetType() == ITEM) {
 				Item* target = (Item*)eTarget;
 				return new GetCommand(target);
 			}
@@ -71,7 +71,7 @@ Command* CommandParser::ParseCommand(const string& args)
 		//check if drop command
 		if (split.size() == 2 && split[0] == "drop") {
 			Entity* eTarget = FindTarget(split[1]);
-			if (eTarget != NULL && eTarget->getType() == ITEM) {
+			if (eTarget != NULL && eTarget->GetType() == ITEM) {
 				Item* target = (Item*)eTarget;
 				return new DropCommand(target);
 			}
@@ -82,7 +82,7 @@ Command* CommandParser::ParseCommand(const string& args)
 		//check if open command
 		if (split.size() == 2 && split[0] == "open") {
 			Entity* eTarget = FindTarget(split[1]);
-			if (eTarget != NULL && eTarget->getType() == ITEM) {
+			if (eTarget != NULL && eTarget->GetType() == ITEM) {
 				Item* target = (Item*)eTarget;
 				return new OpenCommand(target);
 			}
@@ -104,7 +104,7 @@ Command* CommandParser::ParseCommand(const string& args)
 		if (split.size() == 4 && (split[0] == "put" && split[2] == "in")) {
 			Entity* eTarget = FindTarget(split[1]);
 			Entity* eContainer = FindTarget(split[3]);
-			if (eTarget != NULL && eTarget->getType() == ITEM && eContainer != NULL && eContainer->getType() == ITEM) {
+			if (eTarget != NULL && eTarget->GetType() == ITEM && eContainer != NULL && eContainer->GetType() == ITEM) {
 				Item* target = (Item*)eTarget;
 				Item* container = (Item*)eContainer;
 				return new PutCommand(target, container);
@@ -118,12 +118,12 @@ Command* CommandParser::ParseCommand(const string& args)
 	return NULL;
 }
 
-vector<string> CommandParser::SplitString(const string& text)
+vector<string> CommandParser::SplitString(const string& i_text)
 {
 	vector<string> words;
 	string word = "";
-	for (int c = 0; c < text.size(); ++c) {
-		char charAtC = text[c];
+	for (int c = 0; c < i_text.size(); ++c) {
+		char charAtC = i_text[c];
 		if (charAtC != ' ') {
 			word.push_back(charAtC);
 		}
@@ -138,8 +138,8 @@ vector<string> CommandParser::SplitString(const string& text)
 	return words;
 }
 
-Entity* CommandParser::FindTarget(string& targetName)
+Entity* CommandParser::FindTarget(string& i_targetName)
 {
-	targetName[0] = toupper(targetName[0]); //allow name in lowercase
-	return EntityFinder::FindEntityByName(targetName, worldEntities);
+	i_targetName[0] = toupper(i_targetName[0]); //allow name in lowercase
+	return EntityFinder::FindEntityByName(i_targetName, m_worldEntities);
 }

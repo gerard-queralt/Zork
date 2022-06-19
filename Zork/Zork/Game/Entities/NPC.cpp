@@ -1,8 +1,8 @@
 #include "NPC.h"
 
-NPC::NPC(const string& name, const string& description, Room* location, int maxHP) : Creature(name, description, location, maxHP)
+NPC::NPC(const string& i_name, const string& i_description, Room* i_location, int i_maxHP) : Creature(i_name, i_description, i_location, i_maxHP)
 {
-	type = EntityType::NPC;
+	m_type = EntityType::NPC;
 }
 
 NPC::~NPC()

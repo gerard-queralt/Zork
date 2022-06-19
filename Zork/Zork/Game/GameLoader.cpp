@@ -20,8 +20,8 @@ GameLoader::LoadedResult GameLoader::LoadEntities()
     entities.push_back(player);
 
     LoadedResult result;
-    result.entities = entities;
-    result.player = player;
+    result.o_player = player;
+    result.o_entities = entities;
 
     return result;
 }
@@ -47,28 +47,28 @@ vector<Item*> GameLoader::LoadItems()
     return items;
 }
 
-vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& existingEntities)
+vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& i_existingEntities)
 {
     vector<Room*> rooms;
 
     Room* westHouse = new Room("West of House", "This is an open field west of a white house.");
 
     Room* forest = new Room("Forest", "This is a forest, with trees in all directions around you.\nYou feel like you shouldn't go further.");
-    Entity* keyChest = EntityFinder::FindEntityByName("Chest", existingEntities);
+    Entity* keyChest = EntityFinder::FindEntityByName("Chest", i_existingEntities);
     forest->AddEntity(keyChest);
 
     Room* house = new Room("House", "You are in the living room of the house.");
-    Entity* knife = EntityFinder::FindEntityByName("Knife", existingEntities);
+    Entity* knife = EntityFinder::FindEntityByName("Knife", i_existingEntities);
     house->AddEntity(knife);
 
     Room* cellar = new Room("Cellar", "You are in a dark and damp cellar.");
 
     Room* ancientRoom = new Room("Weird room", "You are in a room noone has entered in years. The cobwebs covering the walls almost prevent you from seeing strange symbols and drawings on them.");
-    Entity* sword = EntityFinder::FindEntityByName("Sword", existingEntities);
+    Entity* sword = EntityFinder::FindEntityByName("Sword", i_existingEntities);
     ancientRoom->AddEntity(sword);
 
     Room* smallCave = new Room("Small cave", "You are in a narrow room barely lit by the light coming from the house above.");
-    Entity* rune = EntityFinder::FindEntityByName("Stone", existingEntities);
+    Entity* rune = EntityFinder::FindEntityByName("Stone", i_existingEntities);
     smallCave->AddEntity(rune); //will be held by mob in the future
 
     Room* trollRoom = new Room("The Troll room", "You are in a tall and spacious room. Some natural light filters from the ceiling avobe. Bloodstains and deep scratches mar the walls.");
@@ -84,51 +84,51 @@ vector<Room*> GameLoader::LoadRooms(const vector<Entity*>& existingEntities)
     return rooms;
 }
 
-vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& existingEntities)
+vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& i_existingEntities)
 {
     vector<Exit*> exits;
 
-    Entity* westHouse = EntityFinder::FindEntityByName("West of House", existingEntities);
-    Entity* forest = EntityFinder::FindEntityByName("Forest", existingEntities);
-    Entity* house = EntityFinder::FindEntityByName("House", existingEntities);
-    Entity* cellar = EntityFinder::FindEntityByName("Cellar", existingEntities);
-    Entity* ancientRoom = EntityFinder::FindEntityByName("Weird room", existingEntities);
-    Entity* smallCave = EntityFinder::FindEntityByName("Small cave", existingEntities);
-    Entity* trollRoom = EntityFinder::FindEntityByName("The Troll room", existingEntities);
+    Entity* westHouse = EntityFinder::FindEntityByName("West of House", i_existingEntities);
+    Entity* forest = EntityFinder::FindEntityByName("Forest", i_existingEntities);
+    Entity* house = EntityFinder::FindEntityByName("House", i_existingEntities);
+    Entity* cellar = EntityFinder::FindEntityByName("Cellar", i_existingEntities);
+    Entity* ancientRoom = EntityFinder::FindEntityByName("Weird room", i_existingEntities);
+    Entity* smallCave = EntityFinder::FindEntityByName("Small cave", i_existingEntities);
+    Entity* trollRoom = EntityFinder::FindEntityByName("The Troll room", i_existingEntities);
     
-    if (westHouse->getType() == ROOM && forest->getType() == ROOM) {
+    if (westHouse->GetType() == ROOM && forest->GetType() == ROOM) {
         Exit* westToForest = new Exit("Entrance Forest", "There is a faded path between two trees.", WEST, (Room*)westHouse, (Room*)forest);
         westToForest->AddSelfToRooms();
         exits.push_back(westToForest);
     }
     
-    if (westHouse->getType() == ROOM && house->getType() == ROOM) {
+    if (westHouse->GetType() == ROOM && house->GetType() == ROOM) {
         Exit* westToHouse = new Exit("House door", "There is a door with an ornate keyhole.", EAST, (Room*)westHouse, (Room*)house);
         westToHouse->AddSelfToRooms();
         westToHouse->LockWith("Key");
         exits.push_back(westToHouse);
     }
 
-    if (house->getType() == ROOM && ancientRoom->getType() == ROOM) {
+    if (house->GetType() == ROOM && ancientRoom->GetType() == ROOM) {
         Exit* ancientDoor = new Exit("Ancient door", "The door is made of oak and has hollow shape where the lock should be.", SOUTH, (Room*)house, (Room*)ancientRoom);
         ancientDoor->AddSelfToRooms();
         ancientDoor->LockWith("Stone");
         exits.push_back(ancientDoor);
     }
 
-    if (house->getType() == ROOM && cellar->getType() == ROOM) {
+    if (house->GetType() == ROOM && cellar->GetType() == ROOM) {
         Exit* trapdoor = new Exit("Trap-door", "There is a trap-door on the floor.", DOWN, (Room*)house, (Room*)cellar);
         trapdoor->AddSelfToRooms();
         exits.push_back(trapdoor);
     }
 
-    if (cellar->getType() == ROOM && smallCave->getType() == ROOM) {
+    if (cellar->GetType() == ROOM && smallCave->GetType() == ROOM) {
         Exit* caveEntrance = new Exit("Cave entrance", "There is a hole in the wall, big enough for you to fit through.", WEST, (Room*)cellar, (Room*)smallCave);
         caveEntrance->AddSelfToRooms();
         exits.push_back(caveEntrance);
     }
 
-    if (cellar->getType() == ROOM && trollRoom->getType() == ROOM) {
+    if (cellar->GetType() == ROOM && trollRoom->GetType() == ROOM) {
         Exit* trollEntrance = new Exit("Troll Room entrance", "There is an ominous arch carved in the wall.", NORTH, (Room*)cellar, (Room*)trollRoom);
         trollEntrance->AddSelfToRooms();
         exits.push_back(trollEntrance);

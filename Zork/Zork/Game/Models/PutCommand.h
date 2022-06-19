@@ -6,13 +6,13 @@
 class PutCommand : public Command
 {
 public:
-	PutCommand(Item* target, Item* container);
+	PutCommand(Item* i_target, Item* i_container);
 	~PutCommand();
-	void Do(Player* player);
+	void Do(Player* i_player);
 
 private:
-	Item* target;
-	Item* container;
+	Item* m_target;
+	Item* m_container;
 };
 
 #endif // _PUTCOMMAND_INCLUDE

@@ -6,12 +6,12 @@
 class OpenCommand : public Command
 {
 public:
-	OpenCommand(Item* target);
+	OpenCommand(Item* i_target);
 	~OpenCommand();
-	void Do(Player* player);
+	void Do(Player* i_player);
 
 private:
-	Item* target;
+	Item* m_target;
 };
 
 #endif // _OPENCOMMAND_INCLUDE

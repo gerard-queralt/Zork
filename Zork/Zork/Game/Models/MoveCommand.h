@@ -7,13 +7,13 @@
 class MoveCommand : public Command
 {
 public:
-	MoveCommand(Direction direction);
+	MoveCommand(Direction i_direction);
 	~MoveCommand();
 
-	void Do(Player* player);
+	void Do(Player* i_player);
 
 private:
-	Direction direction;
+	Direction m_direction;
 };
 
 #endif // _MOVECOMMAND_INCLUDE

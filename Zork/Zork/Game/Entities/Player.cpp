@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-Player::Player(const string& name, const string& description) : Creature(name, description, NULL, 25) //no need to set maxHP externally
+Player::Player(const string& i_name, const string& i_description) : Creature(i_name, i_description, NULL, 25) //no need to set maxHP externally
 {
-	type = PLAYER;
+	m_type = PLAYER;
 }
 
 Player::~Player()
@@ -13,37 +13,37 @@ Player::~Player()
 
 void Player::Look() const
 {
-	if (contains.empty()) {
+	if (m_contains.empty()) {
 		cout << "You have nothing on you." << endl;
 	}
 	else {
 		cout << "You have:" << endl;
-		for (Entity* entity : contains) {
+		for (Entity* entity : m_contains) {
 			cout << "  ";
 			entity->Look();
 		}
 	}
 }
 
-void Player::Enter(Room* room)
+void Player::Enter(Room* i_room)
 {
-	Creature::Enter(room);
-	location->Look();
+	Creature::Enter(i_room);
+	m_location->Look();
 }
 
-void Player::Move(Direction direction)
+void Player::Move(Direction i_direction)
 {
-	Room* nextRoom = location->AccessRoomInDirection(direction, contains);
+	Room* nextRoom = m_location->AccessRoomInDirection(i_direction, m_contains);
 	if (nextRoom != NULL) {
 		Enter(nextRoom);
 	}
 }
 
-void Player::Get(Item* item)
+void Player::Get(Item* i_item)
 {
-	if (location->Contains(item)) {
-		if (item->CanBePicked()) {
-			this->AddEntity(location->RemoveEntity(item));
+	if (m_location->Contains(i_item)) {
+		if (i_item->CanBePicked()) {
+			this->AddEntity(m_location->RemoveEntity(i_item));
 			cout << "Taken." << endl;
 		}
 		else {
@@ -55,10 +55,10 @@ void Player::Get(Item* item)
 	}
 }
 
-void Player::Drop(Item* item)
+void Player::Drop(Item* i_item)
 {
-	if (this->Contains(item)) {
-		location->AddEntity(this->RemoveEntity(item));
+	if (this->Contains(i_item)) {
+		m_location->AddEntity(this->RemoveEntity(i_item));
 		cout << "Dropped." << endl;
 	}
 	else {
@@ -66,10 +66,10 @@ void Player::Drop(Item* item)
 	}
 }
 
-void Player::Open(Item* item)
+void Player::Open(Item* i_item)
 {
-	if (location->Contains(item)) {
-		item->Open();
+	if (m_location->Contains(i_item)) {
+		i_item->Open();
 	}
 	else {
 		cout << "That's not an item in this room." << endl;
@@ -78,14 +78,14 @@ void Player::Open(Item* item)
 
 void Player::LookAround()
 {
-	location->Look();
+	m_location->Look();
 }
 
-void Player::Put(Item* item, Item* container)
+void Player::Put(Item* i_item, Item* i_container)
 {
-	if (this->Contains(item) && location->Contains(container)) {
-		container->AddEntity(this->RemoveEntity(item));
-		if (container->Contains(item)) { //added successfully
+	if (this->Contains(i_item) && m_location->Contains(i_container)) {
+		i_container->AddEntity(this->RemoveEntity(i_item));
+		if (i_container->Contains(i_item)) { //added successfully
 			cout << "Item put." << endl;
 		}
 	}

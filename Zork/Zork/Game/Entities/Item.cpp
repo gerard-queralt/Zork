@@ -1,13 +1,13 @@
 #include "Item.h"
 #include <iostream>
 
-Item::Item(const string& name, const string& description, bool canBePicked, bool canBeClosed, int damage) : Entity(name, description)
+Item::Item(const string& i_name, const string& i_description, bool i_canBePicked, bool i_canBeClosed, int i_damage) : Entity(i_name, i_description)
 {
-	this->type = ITEM;
-	this->canBePicked = canBePicked;
-	this->canBeClosed = canBeClosed;
-	this->damage = damage;
-	this->closed = false;
+	m_canBePicked = i_canBePicked;
+	m_canBeClosed = i_canBeClosed;
+	m_damage = i_damage;
+	m_closed = false;
+	m_type = ITEM;
 }
 
 Item::~Item()
@@ -20,41 +20,41 @@ void Item::Look() const
 	LookContents();
 }
 
-void Item::AddEntity(Entity* entity)
+void Item::AddEntity(Entity* i_entity)
 {
-	if (!closed) {
-		Entity::AddEntity(entity);
+	if (!m_closed) {
+		Entity::AddEntity(i_entity);
 	}
 	else {
 		cout << "You can't put that in there, it's closed." << endl;
 	}
 }
 
-bool Item::Contains(Entity* entity)
+bool Item::Contains(Entity* i_entity)
 {
-	if (!closed) {
-		return Entity::Contains(entity);
+	if (!m_closed) {
+		return Entity::Contains(i_entity);
 	}
 	return false;
 }
 
 bool Item::CanBePicked()
 {
-	return canBePicked;
+	return m_canBePicked;
 }
 
 void Item::Close()
 {
-	if (canBeClosed) {
-		closed = true;
+	if (m_canBeClosed) {
+		m_closed = true;
 	}
 }
 
 void Item::Open()
 {
-	if (canBeClosed) {
-		if (closed) {
-			closed = false;
+	if (m_canBeClosed) {
+		if (m_closed) {
+			m_closed = false;
 			cout << "It opened." << endl;
 			LookContents();
 		}
@@ -69,14 +69,14 @@ void Item::Open()
 
 int Item::GetDamage()
 {
-	return damage;
+	return m_damage;
 }
 
 void Item::LookContents() const
 {
-	if (!contains.empty() && !closed) {
+	if (!m_contains.empty() && !m_closed) {
 		cout << "Inside of it are:" << endl;
-		for (Entity* entity : contains) {
+		for (Entity* entity : m_contains) {
 			cout << "  ";
 			entity->Look();
 		}
