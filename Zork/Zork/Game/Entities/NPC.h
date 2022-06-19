@@ -10,6 +10,11 @@ public:
 	Npc(const string& i_name, const string& i_description, Room* i_location, int i_maxHP);
 	~Npc();
 	virtual void Update();
+
+protected:
+	virtual void AttackTargetWithWeapon();
+	virtual void TakeDamage(int i_dmg);
+	virtual void Die();
 };
 
 #endif // _NPC_INCLUDE

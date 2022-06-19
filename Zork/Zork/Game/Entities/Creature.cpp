@@ -49,9 +49,14 @@ bool Creature::IsDead()
 	return m_dead;
 }
 
+bool Creature::CanAttackTarget()
+{
+	return m_combatTarget != NULL && m_weapon != NULL && m_combatTarget->m_location == m_location;
+}
+
 void Creature::AttackTargetWithWeapon()
 {
-	if (m_combatTarget != NULL && m_weapon != NULL && m_combatTarget->m_location == m_location) {
+	if (CanAttackTarget()) {
 		m_combatTarget->TakeDamage(m_weapon->GetDamage());
 	}
 }

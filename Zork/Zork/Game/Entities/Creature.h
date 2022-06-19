@@ -19,6 +19,7 @@ public:
 	bool IsDead();
 
 protected:
+	bool CanAttackTarget();
 	virtual void AttackTargetWithWeapon();
 	virtual void TakeDamage(int i_dmg);
 	virtual void Die();
