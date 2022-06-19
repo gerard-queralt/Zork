@@ -17,4 +17,5 @@ AttackCommand::~AttackCommand()
 
 void AttackCommand::Do(Player* i_player)
 {
+	i_player->Attack(m_target, m_weapon);
 }

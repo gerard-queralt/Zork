@@ -8,8 +8,10 @@
 #include "Models/LookCommand.h"
 #include "Models/InventoryCommand.h"
 #include "Models/PutCommand.h"
+#include "Models/AttackCommand.h"
 #include "EntityFinder.h"
 #include "Entities/Item.h"
+#include "Entities/Npc.h"
 
 map<string, Direction> CommandParser::s_directionShorthands = {
 	{"north", NORTH},
@@ -110,6 +112,26 @@ Command* CommandParser::ParseCommand(const string& i_args)
 				return new PutCommand(target, container);
 			}
 			cout << "That's not an item." << endl;
+			return NULL;
+		}
+
+		//check if attack command
+		if ((split.size() == 2 || split.size() == 4) && split[0] == "attack") {
+			Entity* eTarget = FindTarget(split[1]);
+			if (eTarget != NULL && eTarget->GetType() == NPC) {
+				Npc* target = (Npc*)eTarget;
+				if (split.size() == 4 && split[2] == "with") {
+					Entity* eWeapon = FindTarget(split[3]);
+					if (eWeapon != NULL && eWeapon->GetType() == ITEM){
+						Item* weapon = (Item*)eWeapon;
+						return new AttackCommand(target, weapon);
+					}
+					cout << "That's not an item." << endl;
+					return NULL;
+				}
+				return new AttackCommand(target);
+			}
+			cout << "That's not an enemy." << endl;
 			return NULL;
 		}
 	}
