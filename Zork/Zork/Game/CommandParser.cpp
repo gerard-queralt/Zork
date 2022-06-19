@@ -9,6 +9,8 @@
 #include "Models/InventoryCommand.h"
 #include "Models/PutCommand.h"
 #include "Models/AttackCommand.h"
+#include "Models/EquipCommand.h"
+#include "Models/UnequipCommand.h"
 #include "EntityFinder.h"
 #include "Entities/Item.h"
 #include "Entities/Npc.h"
@@ -133,6 +135,22 @@ Command* CommandParser::ParseCommand(const string& i_args)
 			}
 			cout << "That's not an enemy." << endl;
 			return NULL;
+		}
+
+		//check if equip command
+		if (split.size() == 2 && split[0] == "equip") {
+			Entity* eTarget = FindTarget(split[1]);
+			if (eTarget != NULL && eTarget->GetType() == ITEM) {
+				Item* target = (Item*)eTarget;
+				return new EquipCommand(target);
+			}
+			cout << "That's not an item." << endl;
+			return NULL;
+		}
+
+		//check if unequip command
+		if (split.size() == 1 && split[0] == "unequip") {
+			return new UnequipCommand();
 		}
 	}
 
