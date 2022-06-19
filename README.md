@@ -165,6 +165,17 @@ in you inventory.
 
 ## How to finish the game
 
+The objective of the game is to enter the house's cellar and slay the giant
+troll lurking in it. This monster is slow, but can easily kill you if you give
+it enough time. It's also very tough; normal weapons barely scratch it.
+There might be hope, though: inside the house is a mysterious door that could
+have a way to kill the monster hidden behind it. Unfortunately, it has no keyhole;
+instead it has a circular shape carved on it, as if somwthing was ment to be inserted.
+Seems you will have to keep exploring...
+
+If you want a step-by-step walkthrough on how to beat the game, you can find it
+in the file [HowToBeat](HowToBeat.txt).
+
 ## Link
 
 This project is hosted in [this GitHub repository](https://github.com/gerard-queralt/Zork).
