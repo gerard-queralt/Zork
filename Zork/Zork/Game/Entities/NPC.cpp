@@ -18,6 +18,13 @@ void Npc::Update()
 	}
 }
 
+void Npc::Drop(Item* i_item)
+{
+	cout << "They drop ";
+	i_item->Look();
+	Creature::Drop(i_item);
+}
+
 void Npc::AttackTargetWithWeapon()
 {
 	if (CanAttackTarget()) {

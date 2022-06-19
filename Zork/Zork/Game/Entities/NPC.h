@@ -11,6 +11,8 @@ public:
 	~Npc();
 	virtual void Update();
 
+	void Drop(Item* i_item);
+
 protected:
 	virtual void AttackTargetWithWeapon();
 	virtual void TakeDamage(int i_dmg);
