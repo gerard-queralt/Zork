@@ -104,15 +104,15 @@ vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& existingEntities)
     
     if (westHouse->getType() == ROOM && house->getType() == ROOM) {
         Exit* westToHouse = new Exit("House door", "There is a door with an ornate keyhole.", EAST, (Room*)westHouse, (Room*)house);
-        westToHouse->LockWith("Key");
         westToHouse->AddSelfToRooms();
+        westToHouse->LockWith("Key");
         exits.push_back(westToHouse);
     }
 
     if (house->getType() == ROOM && ancientRoom->getType() == ROOM) {
         Exit* ancientDoor = new Exit("Ancient door", "The door is made of oak and has hollow shape where the lock should be.", SOUTH, (Room*)house, (Room*)ancientRoom);
-        ancientDoor->LockWith("Stone");
         ancientDoor->AddSelfToRooms();
+        ancientDoor->LockWith("Stone");
         exits.push_back(ancientDoor);
     }
 

@@ -75,7 +75,7 @@ bool Exit::Unlock(const list<Entity*>& inventory)
 {
 	vector<Entity*> invVector(inventory.begin(), inventory.end());
 	if (EntityFinder::FindEntityByName(keyName, invVector) != NULL) {
-		cout << "You unlock the way with a " << keyName << "." << endl;
+		cout << "You unlock the way with the " << keyName << "." << endl;
 		locked = false;
 	}
 	return !locked;
