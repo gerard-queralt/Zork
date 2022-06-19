@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "GameLoader.h"
+#include "EntityFinder.h"
 #include "Models/Command.h"
 
 World::World()
@@ -30,4 +31,15 @@ void World::Update(const string& i_args)
 		command->Do(m_player);
 		delete command;
 	}
+}
+
+bool World::Playing()
+{
+	bool playerAlive = !(m_player->IsDead());
+	bool bossAlive = true;
+	Entity* eBoss = EntityFinder::FindEntityByName("Boss", m_entities);
+	if (eBoss != NULL && eBoss->GetType() == NPC) {
+		bossAlive = !(((Npc*)eBoss)->IsDead());
+	}
+	return playerAlive && bossAlive;
 }

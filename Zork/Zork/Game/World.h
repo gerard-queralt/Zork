@@ -14,6 +14,8 @@ public:
 	~World();
 	void Update(const string& i_args);
 
+	bool Playing();
+
 private:
 	Player* m_player;
 	vector<Entity*> m_entities;

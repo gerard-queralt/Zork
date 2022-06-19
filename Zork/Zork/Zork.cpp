@@ -9,11 +9,14 @@ int main()
     World world;
     string args;
     
-    while (true) {
+    while (world.Playing()) {
         cout << "> ";
         getline(cin, args);
         world.Update(args);
     }
+
+    cout << "Press enter to exit the game." << endl;
+    getchar();
 
     return 0;
 }
