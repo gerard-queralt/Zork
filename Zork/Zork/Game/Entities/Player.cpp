@@ -17,6 +17,9 @@ void Player::Look() const
 		cout << "You have nothing on you." << endl;
 	}
 	else {
+		if (m_weapon != NULL) {
+			cout << "You have a " << m_weapon->GetName() << " equiped." << endl;
+		}
 		cout << "You have:" << endl;
 		for (Entity* entity : m_contains) {
 			cout << "  ";
@@ -66,6 +69,14 @@ void Player::Drop(Item* i_item)
 	}
 }
 
+void Player::SetWeapon(Item* i_weapon)
+{
+	Creature::SetWeapon(i_weapon);
+	if (m_weapon == i_weapon) { //succesfully equiped
+		cout << "Equiped " << m_weapon->GetName() << "." << endl;
+	}
+}
+
 void Player::Open(Item* i_item)
 {
 	if (m_location->Contains(i_item)) {
@@ -92,4 +103,14 @@ void Player::Put(Item* i_item, Item* i_container)
 	else {
 		cout << "You don't have that." << endl;
 	}
+}
+
+void Player::Attack(Creature* i_target, Item* i_weapon)
+{
+	if (i_weapon != NULL) {
+		SetWeapon(i_weapon);
+	}
+	SetCombatTarget(i_target);
+	AttackTargetWithWeapon();
+	SetCombatTarget(NULL);
 }

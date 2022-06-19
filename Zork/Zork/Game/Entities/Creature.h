@@ -15,7 +15,7 @@ public:
 	virtual void Enter(Room* i_room);
 	virtual void Drop(Item* i_item);
 	void SetCombatTarget(Creature* i_combatTarget);
-	void SetWeapon(Item* i_weapon);
+	virtual void SetWeapon(Item* i_weapon);
 	bool IsDead();
 
 protected:
