@@ -98,45 +98,39 @@ vector<Exit*> GameLoader::LoadExits(const vector<Entity*>& existingEntities)
     
     if (westHouse->getType() == ROOM && forest->getType() == ROOM) {
         Exit* westToForest = new Exit("Entrance Forest", "There is a faded path between two trees.", WEST, (Room*)westHouse, (Room*)forest);
-        westHouse->AddEntity(westToForest);
-        forest->AddEntity(westToForest->Reverse());
+        westToForest->AddSelfToRooms();
         exits.push_back(westToForest);
     }
     
     if (westHouse->getType() == ROOM && house->getType() == ROOM) {
         Exit* westToHouse = new Exit("House door", "There is a door with an ornate keyhole.", EAST, (Room*)westHouse, (Room*)house);
         westToHouse->LockWith("Key");
-        westHouse->AddEntity(westToHouse);
-        house->AddEntity(westToHouse->Reverse());
+        westToHouse->AddSelfToRooms();
         exits.push_back(westToHouse);
     }
 
     if (house->getType() == ROOM && ancientRoom->getType() == ROOM) {
         Exit* ancientDoor = new Exit("Ancient door", "The door is made of oak and has hollow shape where the lock should be.", SOUTH, (Room*)house, (Room*)ancientRoom);
         ancientDoor->LockWith("Stone");
-        house->AddEntity(ancientDoor);
-        ancientRoom->AddEntity(ancientDoor->Reverse());
+        ancientDoor->AddSelfToRooms();
         exits.push_back(ancientDoor);
     }
 
     if (house->getType() == ROOM && cellar->getType() == ROOM) {
         Exit* trapdoor = new Exit("Trap-door", "There is a trap-door on the floor.", DOWN, (Room*)house, (Room*)cellar);
-        house->AddEntity(trapdoor);
-        cellar->AddEntity(trapdoor->Reverse());
+        trapdoor->AddSelfToRooms();
         exits.push_back(trapdoor);
     }
 
     if (cellar->getType() == ROOM && smallCave->getType() == ROOM) {
         Exit* caveEntrance = new Exit("Cave entrance", "There is a hole in the wall, big enough for you to fit through.", WEST, (Room*)cellar, (Room*)smallCave);
-        cellar->AddEntity(caveEntrance);
-        smallCave->AddEntity(caveEntrance->Reverse());
+        caveEntrance->AddSelfToRooms();
         exits.push_back(caveEntrance);
     }
 
     if (cellar->getType() == ROOM && trollRoom->getType() == ROOM) {
         Exit* trollEntrance = new Exit("Troll Room entrance", "There is an ominous arch carved in the wall.", NORTH, (Room*)cellar, (Room*)trollRoom);
-        cellar->AddEntity(trollEntrance);
-        trollRoom->AddEntity(trollEntrance->Reverse());
+        trollEntrance->AddSelfToRooms();
         exits.push_back(trollEntrance);
     }
 

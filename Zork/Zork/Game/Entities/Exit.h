@@ -16,6 +16,7 @@ public:
 
 	Direction getDirection();
 	Room* getRoomFrom(Room* from);
+	void AddSelfToRooms();
 	Exit* Reverse();
 	void LockWith(const string& keyName);
 	bool Unlock(const list<Entity*>& inventory);

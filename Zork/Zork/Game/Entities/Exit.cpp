@@ -48,6 +48,12 @@ Room* Exit::getRoomFrom(Room* from)
 	return NULL;
 }
 
+void Exit::AddSelfToRooms()
+{
+	from->AddEntity(this);
+	to->AddEntity(this->Reverse());
+}
+
 Exit* Exit::Reverse()
 {
 	//If direction is even, add 1 to get reverse. If it's odd, substract 1
