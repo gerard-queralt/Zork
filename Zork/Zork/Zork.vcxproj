@@ -152,6 +152,7 @@
     <ClCompile Include="Game\GameLoader.cpp" />
     <ClCompile Include="Game\Models\AttackCommand.cpp" />
     <ClCompile Include="Game\Models\DropCommand.cpp" />
+    <ClCompile Include="Game\Models\EquipCommand.cpp" />
     <ClCompile Include="Game\Models\GetCommand.cpp" />
     <ClCompile Include="Game\Models\InventoryCommand.cpp" />
     <ClCompile Include="Game\Models\LookCommand.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Game\Models\AttackCommand.h" />
     <ClInclude Include="Game\Models\Command.h" />
     <ClInclude Include="Game\Models\DropCommand.h" />
+    <ClInclude Include="Game\Models\EquipCommand.h" />
     <ClInclude Include="Game\Models\GetCommand.h" />
     <ClInclude Include="Game\Models\InventoryCommand.h" />
     <ClInclude Include="Game\Models\LookCommand.h" />
