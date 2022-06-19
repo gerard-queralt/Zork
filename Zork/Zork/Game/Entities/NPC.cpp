@@ -8,3 +8,11 @@ Npc::Npc(const string& i_name, const string& i_description, Room* i_location, in
 Npc::~Npc()
 {
 }
+
+void Npc::Update()
+{
+	if (!IsDead()) {
+		Creature::Update();
+		AttackTargetWithWeapon();
+	}
+}

@@ -19,7 +19,6 @@ void Creature::Update()
 {
 	if (!IsDead()) {
 		Entity::Update();
-		AttackTargetWithWeapon();
 	}
 }
 
