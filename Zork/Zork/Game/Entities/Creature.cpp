@@ -72,9 +72,11 @@ void Creature::TakeDamage(int i_dmg)
 void Creature::Die()
 {
 	m_dead = true;
-	for (Entity* entity : m_contains) {
-		if (entity->GetType() == ITEM) {
-			Drop((Item*)entity);
+	auto it = m_contains.begin();
+	while (it != m_contains.end()) {
+		auto cur = it++;
+		if ((*cur)->GetType() == ITEM) {
+			Drop((Item*)(*cur));
 		}
 	}
 }
