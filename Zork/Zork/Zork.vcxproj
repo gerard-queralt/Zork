@@ -150,6 +150,7 @@
     <ClCompile Include="Game\Entities\TrollBoss.cpp" />
     <ClCompile Include="Game\EntityFinder.cpp" />
     <ClCompile Include="Game\GameLoader.cpp" />
+    <ClCompile Include="Game\Models\AttackCommand.cpp" />
     <ClCompile Include="Game\Models\DropCommand.cpp" />
     <ClCompile Include="Game\Models\GetCommand.cpp" />
     <ClCompile Include="Game\Models\InventoryCommand.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Game\EntityFinder.h" />
     <ClInclude Include="Game\Enumerations.h" />
     <ClInclude Include="Game\GameLoader.h" />
+    <ClInclude Include="Game\Models\AttackCommand.h" />
     <ClInclude Include="Game\Models\Command.h" />
     <ClInclude Include="Game\Models\DropCommand.h" />
     <ClInclude Include="Game\Models\GetCommand.h" />

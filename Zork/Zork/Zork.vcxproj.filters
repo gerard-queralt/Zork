@@ -75,6 +75,9 @@
     <ClCompile Include="Game\Entities\TrollBoss.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="Game\Models\AttackCommand.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game\Entities\Entity.h">
@@ -138,6 +141,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Game\Entities\TrollBoss.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Models\AttackCommand.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
