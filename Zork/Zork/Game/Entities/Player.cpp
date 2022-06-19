@@ -18,7 +18,7 @@ void Player::Look() const
 	}
 	else {
 		if (m_weapon != NULL) {
-			cout << "You have a " << m_weapon->GetName() << " equiped." << endl;
+			cout << "You have a " << m_weapon->GetName() << " equipped." << endl;
 		}
 		cout << "You have:" << endl;
 		for (Entity* entity : m_contains) {
@@ -71,9 +71,12 @@ void Player::Drop(Item* i_item)
 
 void Player::SetWeapon(Item* i_weapon)
 {
+	Item* oldWeapon = m_weapon;
 	Creature::SetWeapon(i_weapon);
-	if (m_weapon == i_weapon) { //succesfully equiped
-		cout << "Equiped " << m_weapon->GetName() << "." << endl;
+	if (m_weapon == i_weapon) { //succesfully equipped
+		if (m_weapon != oldWeapon) { //if this condition is checked with the previous one it will incorrectly output the error message below
+			cout << "Equipped " << m_weapon->GetName() << "." << endl;
+		}
 	}
 	else {
 		cout << "You don't have that item." << endl;
@@ -125,7 +128,7 @@ void Player::Attack(Creature* i_target, Item* i_weapon)
 		SetCombatTarget(NULL);
 	}
 	else {
-		cout << "You don't have a weapon equiped." << endl;
+		cout << "You don't have a weapon equipped." << endl;
 	}
 }
 
@@ -133,10 +136,10 @@ void Player::Unequip()
 {
 	if (m_weapon != NULL) {
 		m_weapon = NULL;
-		cout << "Unequiped." << endl;
+		cout << "Unequipped." << endl;
 	}
 	else {
-		cout << "You have nothing equiped." << endl;
+		cout << "You have nothing equipped." << endl;
 	}
 }
 
