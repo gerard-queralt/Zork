@@ -30,13 +30,13 @@ vector<Item*> GameLoader::LoadItems()
 {
     vector<Item*> items;
 
-    Item* houseKey = new Item("Key", "a small key.", true, false);
-    Item* keyChest = new Item("Chest", "a small chest with its lid ajar.", false, true);
+    Item* houseKey = new Item("Key", "a small key.", true, false, 0);
+    Item* keyChest = new Item("Chest", "a small chest with its lid ajar.", false, true, 0);
     keyChest->AddEntity(houseKey);
     keyChest->Close();
-    Item* knife = new Item("Knife", "a kitchen knife", true, false);
-    Item* rune = new Item("Stone", "an odd stone with weird markings", true, false);
-    Item* sword = new Item("Sword", "a sword with Stones carved over it.", true, false);
+    Item* knife = new Item("Knife", "a kitchen knife", true, false, 5);
+    Item* rune = new Item("Stone", "an odd stone with weird markings", true, false, 1);
+    Item* sword = new Item("Sword", "a sword with Stones carved over it.", true, false, 20);
 
     items.push_back(houseKey);
     items.push_back(keyChest);

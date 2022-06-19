@@ -1,11 +1,12 @@
 #include "Item.h"
 #include <iostream>
 
-Item::Item(const string& name, const string& description, bool canBePicked, bool canBeClosed) : Entity(name, description)
+Item::Item(const string& name, const string& description, bool canBePicked, bool canBeClosed, int damage) : Entity(name, description)
 {
 	this->type = ITEM;
 	this->canBePicked = canBePicked;
 	this->canBeClosed = canBeClosed;
+	this->damage = damage;
 	this->closed = false;
 }
 

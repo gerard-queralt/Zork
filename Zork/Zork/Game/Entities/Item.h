@@ -6,7 +6,7 @@
 class Item : public Entity
 {
 public:
-	Item(const string& name, const string& description, bool canBePicked, bool canBeClosed);
+	Item(const string& name, const string& description, bool canBePicked, bool canBeClosed, int damage);
 	~Item();
 
 	void Look() const;
@@ -25,6 +25,7 @@ private:
 	bool canBePicked;
 	bool canBeClosed;
 	bool closed;
+	int damage;
 };
 
 #endif // _ITEM_INCLUDE
