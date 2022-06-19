@@ -19,6 +19,7 @@ void Creature::Update()
 {
 	if (!IsDead()) {
 		Entity::Update();
+		AttackTargetWithWeapon();
 	}
 }
 
@@ -49,7 +50,7 @@ bool Creature::IsDead()
 
 void Creature::AttackTargetWithWeapon()
 {
-	if (m_combatTarget != NULL && m_weapon != NULL) {
+	if (m_combatTarget != NULL && m_weapon != NULL && m_location->Contains(m_combatTarget)) {
 		m_combatTarget->TakeDamage(m_weapon->GetDamage());
 	}
 }
