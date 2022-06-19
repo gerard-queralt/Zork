@@ -4,11 +4,11 @@
 #include "Creature.h"
 #include "Item.h"
 
-class NPC : public Creature
+class Npc : public Creature
 {
 public:
-	NPC(const string& i_name, const string& i_description, Room* i_location, int i_maxHP);
-	~NPC();
+	Npc(const string& i_name, const string& i_description, Room* i_location, int i_maxHP);
+	~Npc();
 };
 
 #endif // _NPC_INCLUDE
