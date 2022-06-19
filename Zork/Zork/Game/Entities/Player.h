@@ -7,7 +7,7 @@
 class Player : public Creature
 {
 public:
-	Player(const string& i_name, const string& i_description);
+	Player();
 	~Player();
 
 	void Look() const;

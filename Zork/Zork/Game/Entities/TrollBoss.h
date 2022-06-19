@@ -5,7 +5,8 @@
 
 class TrollBoss : public Npc
 {
-	TrollBoss(const string& i_name, const string& i_description, Room* i_location);
+public:
+	TrollBoss(Room* i_location);
 	~TrollBoss();
 };
 

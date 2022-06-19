@@ -40,7 +40,9 @@ void Creature::SetCombatTarget(Creature* i_combatTarget)
 
 void Creature::SetWeapon(Item* i_weapon)
 {
-	m_weapon = i_weapon;
+	if (Contains(i_weapon)) {
+		m_weapon = i_weapon;
+	}
 }
 
 bool Creature::IsDead()

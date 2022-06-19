@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-Player::Player(const string& i_name, const string& i_description) : Creature(i_name, i_description, NULL, 25) //no need to set maxHP externally
+Player::Player() : Creature("Hero", "That's you!", NULL, 25) //no need to set attributes externally
 {
 	m_type = PLAYER;
 }
