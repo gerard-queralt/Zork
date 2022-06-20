@@ -4,13 +4,18 @@
 
 This project is a tribute of the game [Zork](https://en.wikipedia.org/wiki/Zork_I).
 
-Zork is a 1980s text adventure game developed by four members of the MIT Dynamic Modeling Group —
+Zork is a 1980 text adventure game developed by four members of the MIT Dynamic Modeling Group —
 Tim Anderson, Marc Blank, Bruce Daniels, and Dave Lebling.
 
 In the game, the player is controlled through text commands.
 Their objective is to collect all the loot found in the dungeon.
 
 ## Author
+
+At the time of making this project, I am about to finish my degree in Informatics Engineering
+at the Facultat d'Informàtica de Barcelona. I wish to enter the video game industry
+and help make some amazing games, just like the ones that made me love this art
+and pursue this path.
 
 ## How to play
 
