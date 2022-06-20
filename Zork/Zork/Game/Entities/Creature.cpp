@@ -31,7 +31,7 @@ void Creature::Drop(Item* i_item)
 {
 	m_location->AddEntity(this->RemoveEntity(i_item));
 	if (i_item == m_weapon) {
-		m_weapon == NULL;
+		m_weapon = NULL;
 	}
 }
 
