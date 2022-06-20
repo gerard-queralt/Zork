@@ -12,6 +12,9 @@ Their objective is to collect all the loot found in the dungeon.
 
 ## Author
 
+[Gerard Queralt](https://github.com/gerard-queralt)
+
+
 At the time of making this project, I am about to finish my degree in Informatics Engineering
 at the Facultat d'Informàtica de Barcelona. I wish to enter the video game industry
 and help make some amazing games, just like the ones that made me love this art
@@ -184,6 +187,24 @@ in the file [HowToBeat](HowToBeat.txt).
 ## Link
 
 This project is hosted in [this GitHub repository](https://github.com/gerard-queralt/Zork).
+
+## Personal thoughts
+
+The thing I like the most of my implementation is the Command hierarchy, found in the
+[Models](https://github.com/gerard-queralt/Zork/tree/main/Zork/Zork/Game/Models)
+folder. I think it allows for easy extension, which means it's simple to add more
+commands to the game. That's also because of the
+[CommandParser](https://github.com/gerard-queralt/Zork/blob/main/Zork/Zork/Game/CommandParser.h),
+who is the sole responsible for managing the player's input. It's the only class
+that needs to be modified when adding a new command (besides, of course, the class
+that might need a new functionallity), which again made the process very easy.
+
+I'm not satisfied, though, with how strict the commands are. I think a simple solution
+would have been adding "aliases" to the entities, but there's still the issue of the
+CommandParser only allowing one-word names. This issue is still somewhat easy to fix
+(the name is all the words after the command keyword until the end/the next keyword),
+but due to time constraints and the other deadlines I have comming up I chose to
+leave it as is.
 
 ## License
 
