@@ -2,6 +2,8 @@
 #include "EntityFinder.h"
 #include "Entities/TrollBoss.h"
 
+//ideally, this class would read json-like data, but for this small version it can all be instantiated "by hand"
+
 GameLoader::LoadedResult GameLoader::LoadEntities()
 {
     vector<Entity*> entities;
