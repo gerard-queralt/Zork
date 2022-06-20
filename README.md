@@ -14,7 +14,6 @@ Their objective is to collect all the loot found in the dungeon.
 
 [Gerard Queralt](https://github.com/gerard-queralt)
 
-
 At the time of making this project, I am about to finish my degree in Informatics Engineering
 at the Facultat d'Informàtica de Barcelona. I wish to enter the video game industry
 and help make some amazing games, just like the ones that made me love this art
@@ -74,8 +73,8 @@ or
 > take <item>
 ```
 
-Where `<item>` is the name of an item in the room, which are always one word.
-Unfortunately they are pretty strict, but the names can be inferred from the
+Where `<item>` is the name of an item in the room, which is always one word.
+Unfortunately, they are pretty strict, but the names can be inferred from the
 description given, so I hope it won't be a problem.
 
 ### Inventory
@@ -178,7 +177,7 @@ troll lurking in it. This monster is slow, but can easily kill you if you give
 it enough time. It's also very tough; normal weapons barely scratch it.
 There might be hope, though: inside the house is a mysterious door that could
 have a way to kill the monster hidden behind it. Unfortunately, it has no keyhole;
-instead it has a circular shape carved on it, as if something was ment to be inserted.
+instead it has a circular shape carved on it, as if something was meant to be inserted.
 Seems you will have to keep exploring...
 
 If you want a step-by-step walkthrough on how to beat the game, you can find it
@@ -190,21 +189,20 @@ This project is hosted in [this GitHub repository](https://github.com/gerard-que
 
 ## Personal thoughts
 
-The thing I like the most of my implementation is the Command hierarchy, found in the
+The thing I like the most about my implementation is the Command hierarchy, found in the
 [Models](https://github.com/gerard-queralt/Zork/tree/main/Zork/Zork/Game/Models)
 folder. I think it allows for easy extension, which means it's simple to add more
 commands to the game. That's also because of the
 [CommandParser](https://github.com/gerard-queralt/Zork/blob/main/Zork/Zork/Game/CommandParser.h),
-who is the sole responsible for managing the player's input. It's the only class
+who is the sole responsible for managing the player's input. Thus, it's the only class
 that needs to be modified when adding a new command (besides, of course, the class
-that might need a new functionallity), which again made the process very easy.
+that might need a new functionality), which again makes the process very easy.
 
 I'm not satisfied, though, with how strict the commands are. I think a simple solution
 would have been adding "aliases" to the entities, but there's still the issue of the
 CommandParser only allowing one-word names. This issue is still somewhat easy to fix
 (the name is all the words after the command keyword until the end/the next keyword),
-but due to time constraints and the other deadlines I have comming up I chose to
-leave it as is.
+but due to time constraints and the other deadlines I have coming up, I chose to leave it as is.
 
 ## License
 
