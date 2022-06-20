@@ -12,4 +12,3 @@ public:
 };
 
 #endif // _INVENTORYCOMMAND_INCLUDE
-

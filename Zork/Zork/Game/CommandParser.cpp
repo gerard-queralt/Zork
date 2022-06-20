@@ -99,7 +99,7 @@ Command* CommandParser::ParseCommand(const string& i_args)
 			return new LookCommand();
 		}
 		
-		//check if look command
+		//check if inventory command
 		if (split.size() == 1 && (split[0] == "inventory" || split[0] == "i")) {
 			return new InventoryCommand();
 		}
