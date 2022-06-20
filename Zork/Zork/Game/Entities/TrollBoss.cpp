@@ -17,7 +17,7 @@ void TrollBoss::Update()
 		switch (m_instaDeathCountdown)
 		{
 		case 3:
-			cout << "The giant troll glances at you, and begins moving slowly." << endl;
+			cout << "The giant troll glances at you, and begins to move slowly." << endl;
 			break;
 		case 2:
 			cout << "The troll starts raising its axe." << endl;

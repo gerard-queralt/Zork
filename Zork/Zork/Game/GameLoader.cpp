@@ -39,9 +39,9 @@ vector<Item*> GameLoader::LoadItems()
     Item* keyChest = new Item("Chest", "a small chest with its lid ajar.", false, true, 0);
     keyChest->AddEntity(houseKey);
     keyChest->Close();
-    Item* knife = new Item("Knife", "a kitchen knife", true, false, 5);
-    Item* rune = new Item("Stone", "an odd stone with weird markings", true, false, 1);
-    Item* club = new Item("Club", "a wooden club with some bloodstains", true, false, 8);
+    Item* knife = new Item("Knife", "a kitchen knife.", true, false, 5);
+    Item* rune = new Item("Stone", "an odd stone with weird markings.", true, false, 1);
+    Item* club = new Item("Club", "a wooden club with some bloodstains.", true, false, 8);
     Item* axe = new Item("Axe", "an huge double-edged axe.", true, false, 100);
     Item* sword = new Item("Sword", "a sword with stones carved over it.", true, false, 20);
 
