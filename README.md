@@ -17,7 +17,8 @@ Their objective is to collect all the loot found in the dungeon.
 At the time of making this project, I am about to finish my degree in Informatics Engineering
 at the Facultat d'Informàtica de Barcelona. I wish to enter the video game industry
 and help make some amazing games, just like the ones that made me love this art
-and pursue this path.
+and pursue this path. This small game was made in less than a week as a way to
+showcase some of my C++ skills.
 
 ## How to play
 
